@@ -1,0 +1,42 @@
+/* ── Extra background decorations used only in the root shell ── */
+
+/* Floating bubbles */
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  animation: float-gentle ease-in-out infinite;
+  z-index: 0;
+}
+
+.b1 { width: 80px;  height: 80px;  bottom: 15%; left: 8%;   animation-duration: 6s;  animation-delay: 0s;   }
+.b2 { width: 50px;  height: 50px;  bottom: 35%; left: 20%;  animation-duration: 8s;  animation-delay: 1.5s; }
+.b3 { width: 110px; height: 110px; bottom: 10%; right: 12%; animation-duration: 7s;  animation-delay: 0.8s; }
+.b4 { width: 65px;  height: 65px;  top: 40%;    right: 25%; animation-duration: 5.5s;animation-delay: 2.2s; }
+
+/* Rainbow arc in the top-right corner */
+.rainbow-arc {
+  position: fixed;
+  top: -120px;
+  right: -120px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 200deg,
+    transparent 0deg,
+    transparent 60deg,
+    rgba(255, 99, 71, 0.25)  60deg,  80deg,
+    rgba(255,165,  0, 0.25)  80deg, 100deg,
+    rgba(255,255,  0, 0.25) 100deg, 120deg,
+    rgba(0,  200,100, 0.25) 120deg, 140deg,
+    rgba(30, 144,255, 0.25) 140deg, 160deg,
+    rgba(180, 50,220, 0.25) 160deg, 180deg,
+    transparent 180deg, 360deg
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: spin-slow 25s linear infinite;
+}

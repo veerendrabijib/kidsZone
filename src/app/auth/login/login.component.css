@@ -1,0 +1,98 @@
+/* ============================================================
+   LOGIN COMPONENT — Specific Styles
+   ============================================================ */
+
+/* ── Page wrapper ───────────────────────────────────────────── */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  z-index: 1;
+}
+
+/* ── Login card sizing ──────────────────────────────────────── */
+.login-card {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* ── Password input right-padding for the toggle button ─────── */
+.pw-input {
+  padding-right: 50px;
+}
+
+/* ── Side mascots ───────────────────────────────────────────── */
+.side-mascots {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  pointer-events: none;
+}
+
+.side-pet {
+  position: absolute;
+  font-size: 2.4rem;
+  top: 80px;
+  animation: wiggle 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+
+.side-pet.left  { left: -48px; }
+.side-pet.right { right: -48px; }
+
+/* ── Wrong-credentials banner ───────────────────────────────── */
+.login-error-banner {
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #FFF0F0, #FFE0E0);
+  border: 2px solid #FFCDD2;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #C62828;
+  padding: 10px 16px;
+  text-align: center;
+  animation: shake 0.4s ease, slide-up 0.3s ease;
+}
+
+/* ── Bottom helper tip ──────────────────────────────────────── */
+.bottom-tip {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #90B8CC;
+  padding: 8px 12px;
+  background: rgba(78,205,196,0.08);
+  border-radius: 12px;
+}
+
+/* ── Inline-style replacements ───────────────────────────────── */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.link-spacing {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+/* ── Responsive tweaks ──────────────────────────────────────── */
+@media (max-width: 520px) {
+  .side-mascots { display: none; }
+}
+
+@media (min-width: 768px) {
+  .login-card {
+    padding: 44px 40px 48px;
+  }
+}

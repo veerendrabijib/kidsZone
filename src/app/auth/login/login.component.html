@@ -1,0 +1,149 @@
+<!-- ============================================================
+     LOGIN PAGE — Sparkle Squad
+     "Hello Friend! Let's Play!" 🦁
+     ============================================================ -->
+
+<div class="page-container">
+
+  <!-- ── Auth Card ──────────────────────────────────────────── -->
+  <div class="auth-card login-card">
+
+    <!-- Header: Mascot + Title -->
+    <div class="card-header">
+      <span class="mascot-wrap" role="img" aria-label="Lion mascot">🦁</span>
+      <h1 class="card-title">Hello Cham!</h1>
+      <p class="card-subtitle">Ready for some fun? Let's go! 🎉</p>
+    </div>
+
+    <!-- Side mascots (decorative, hidden on very small screens) -->
+    <div class="side-mascots" aria-hidden="true">
+      <span class="side-pet left wiggle">🦒</span>
+      <span class="side-pet right wiggle delay-500">🐘</span>
+    </div>
+
+    <!-- ── Login Form ──────────────────────────────────────── -->
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+
+      <!-- Username Field -->
+      <div class="form-group delay-100">
+        <label class="form-label" for="username">
+          <span class="label-icon">👤</span>
+          Your Fun Name
+        </label>
+        <div class="input-wrapper">
+          <input
+            id="username"
+            type="text"
+            formControlName="username"
+            class="fun-input"
+            placeholder="Type your fun name here..."
+            autocomplete="username"
+            aria-describedby="username-error"
+          >
+        </div>
+        <!-- Validation messages -->
+        <div
+          *ngIf="username.touched && username.invalid"
+          id="username-error"
+          class="error-msg"
+          role="alert"
+        >
+          <span *ngIf="username.errors?.['required']">
+            😊 Oops! Please type your fun name!
+          </span>
+          <span *ngIf="username.errors?.['minlength']">
+            🤏 Your name needs at least 3 letters!
+          </span>
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group delay-200">
+        <label class="form-label" for="password">
+          <span class="label-icon">🔐</span>
+          Secret Password
+        </label>
+        <div class="input-wrapper">
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            class="fun-input pw-input"
+            placeholder="Shh… it's a secret! 🤫"
+            autocomplete="current-password"
+            aria-describedby="password-error"
+          >
+          <!-- Show / Hide toggle -->
+          <button
+            type="button"
+            class="btn-toggle-pw"
+            (click)="togglePassword()"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+          >
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
+        </div>
+        <div
+          *ngIf="password.touched && password.invalid"
+          id="password-error"
+          class="error-msg"
+          role="alert"
+        >
+          <span *ngIf="password.errors?.['required']">
+            🔐 Your secret password is missing!
+          </span>
+          <span *ngIf="password.errors?.['minlength']">
+            📏 Password needs at least 4 characters!
+          </span>
+        </div>
+      </div>
+
+      <!-- Wrong credentials error -->
+      <div *ngIf="loginError" class="error-msg login-error-banner" role="alert">
+        😅 Hmm, that doesn't match! Try again or ask a parent for help!
+      </div>
+
+      <!-- Success flash -->
+      <div *ngIf="loginSuccess" class="success-msg" role="status">
+        🎉 Yay! Found you! Loading your world…
+      </div>
+
+      <!-- Forgot Password Link -->
+      <div class="link-row link-spacing">
+        <a routerLink="/forgot-password" class="fun-link">
+          🤔 Forgot your password?
+        </a>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn-primary"
+        [class.loading]="isLoading"
+        [disabled]="isLoading"
+        aria-label="Login"
+      >
+        <ng-container *ngIf="!isLoading">
+          🎮 Let's Play!
+        </ng-container>
+        <span *ngIf="isLoading" class="loading-dots" aria-label="Loading...">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Create Account -->
+      <div class="divider">or</div>
+
+      <a routerLink="/signup" class="btn-secondary">
+        ✨ Create New Account
+      </a>
+
+    </form>
+
+    <!-- Bottom tip -->
+    <p class="bottom-tip">
+      💡 Tip: Ask mum or dad if you need help! 🌈
+    </p>
+  </div>
+
+</div>
