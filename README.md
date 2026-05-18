@@ -1,4 +1,4 @@
-# ✨ Sparkle Squad — Kids Login & Registration App
+# KidsZone — Kids Login & Registration App
 
 A magical, colorful Angular authentication module designed for children aged 3–12.
 Built to feel like **Duolingo Kids** meets **ABCmouse** — fun, safe, and exciting!
