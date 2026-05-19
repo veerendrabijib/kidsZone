@@ -18,8 +18,9 @@
 }
 
 .signup-card {
-  max-width: 460px;
+  max-width: 560px;
   width: 100%;
+  padding: 30px 36px 40px;
 }
 
 /* ── Progress Bar ───────────────────────────────────────────── */
@@ -229,6 +230,10 @@
   gap: 8px;
   margin-bottom: 12px;
 }
+
+/* unify inputs look with login */
+.fun-input { background: rgba(232,250,255,0.95); border-radius: 14px; padding: 12px 14px; border: 2px solid rgba(180,230,245,0.6); }
+.btn-primary { width:100%; padding:14px; border-radius:24px; background:linear-gradient(135deg,#FF9A3C,#FF6B6B); color:#fff; font-weight:900; }
 
 .avatar-btn {
   font-size: 1.8rem;

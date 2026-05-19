@@ -37,6 +37,7 @@
 
   /* Spacing & Shape */
   --radius-card: 28px;
+  --radius-card: 36px;
   --radius-btn:  50px;
   --radius-input:18px;
 
@@ -62,7 +63,7 @@ html, body {
 }
 
 body {
-  background: var(--grad-sky);
+  background: linear-gradient(160deg,#74D7F7 0%, #4ECDC4 60%, #A8E6CF 100%);
   min-height: 100vh;
 }
 
@@ -216,10 +217,10 @@ body {
 
 /* ── Auth Card ──────────────────────────────────────────────── */
 .auth-card {
-  background: var(--grad-card);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  padding: 36px 32px 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(240,250,255,0.92) 100%);
+  border-radius: calc(var(--radius-card) + 4px);
+  box-shadow: 0 18px 48px rgba(30,130,120,0.12), 0 6px 18px rgba(0,0,0,0.06);
+  padding: 36px 32px 44px;
   position: relative;
   z-index: 2;
   animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
@@ -227,6 +228,19 @@ body {
   backdrop-filter: blur(10px);
   width: 100%;
   max-width: 440px;
+}
+
+/* Placeholders and inputs */
+.fun-input::placeholder { color: rgba(90,125,140,0.45); font-weight:700; }
+.fun-input { font-weight:800; color:#2E4552; }
+
+/* Primary button hover */
+.auth-card .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(255,106,107,0.22); }
+
+/* Small responsive fix for mobile */
+@media (max-width: 520px) {
+  .auth-card { margin: 12px; padding: 28px; }
+  .mascot-wrap { font-size: 62px; }
 }
 
 /* ── Card Header ────────────────────────────────────────────── */
