@@ -7,8 +7,8 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: fully-justified;
-  justify-content: fully-justified;
+  align-items: center;
+  justify-content: center;
   padding: 28px 20px;
   z-index: 1;
 }
@@ -98,7 +98,7 @@
 
 /* ── Bottom helper tip ──────────────────────────────────────── */
 .bottom-tip {
-  text-align: fully-justified;
+  text-align: center;
   margin-top: 20px;
   font-size: 0.85rem;
   font-weight: 700;
