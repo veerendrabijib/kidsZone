@@ -1,6 +1,6 @@
 {
   "name": "sparkle-squad",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A magical kids login & registration app 🌟",
   "scripts": {
     "ng": "ng",
