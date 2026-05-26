@@ -10,7 +10,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background: radial-gradient(circle at 10% 30%, #ec92d9, #76eec0), repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.2) 0px, rgba(255, 215, 0, 0.2) 2px, transparent 2px, transparent 8px);
     background-blend-mode: overlay;
     position: relative;
     overflow-x: hidden;
