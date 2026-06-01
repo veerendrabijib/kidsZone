@@ -1,5 +1,5 @@
 <!-- ============================================================
-     LOGIN PAGE — Sparkle Squad
+     LOGIN PAGE — kidszone
      "Hello Friend! Let's Play!" 🦁
      ============================================================ -->
 
@@ -10,15 +10,14 @@
 
     <!-- Header: Mascot + Title -->
     <div class="card-header">
-      <span class="mascot-wrap" role="img" aria-label="Lion mascot">🦁</span>
+      <span class="mascot-wrap" role="img" aria-label="panda"></span>
       <h1 class="card-title">Hello Cham!</h1>
       <p class="card-subtitle">Ready for some fun? Let's go! 🎉</p>
     </div>
 
     <!-- Side mascots (decorative, hidden on very small screens) -->
     <div class="side-mascots" aria-hidden="true">
-      <span class="side-pet left wiggle">🦒</span>
-      <span class="side-pet right wiggle delay-500">🐘</span>
+  
     </div>
 
     <!-- ── Login Form ──────────────────────────────────────── -->
@@ -55,64 +54,6 @@
             🤏 Your name needs at least 3 letters!
           </span>
         </div>
-      </div>
-
-      <!-- Password Field -->
-      <div class="form-group delay-200">
-        <label class="form-label" for="password">
-          <span class="label-icon">🔐</span>
-          Secret Password
-        </label>
-        <div class="input-wrapper">
-          <input
-            id="password"
-            [type]="showPassword ? 'text' : 'password'"
-            formControlName="password"
-            class="fun-input pw-input"
-            placeholder="Shh… it's a secret! 🤫"
-            autocomplete="current-password"
-            aria-describedby="password-error"
-          >
-          <!-- Show / Hide toggle -->
-          <button
-            type="button"
-            class="btn-toggle-pw"
-            (click)="togglePassword()"
-            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
-          >
-            {{ showPassword ? '🙈' : '👁️' }}
-          </button>
-        </div>
-        <div
-          *ngIf="password.touched && password.invalid"
-          id="password-error"
-          class="error-msg"
-          role="alert"
-        >
-          <span *ngIf="password.errors?.['required']">
-            🔐 Your secret password is missing!
-          </span>
-          <span *ngIf="password.errors?.['minlength']">
-            📏 Password needs at least 4 characters!
-          </span>
-        </div>
-      </div>
-
-      <!-- Wrong credentials error -->
-      <div *ngIf="loginError" class="error-msg login-error-banner" role="alert">
-        😅 Hmm, that doesn't match! Try again or ask a parent for help!
-      </div>
-
-      <!-- Success flash -->
-      <div *ngIf="loginSuccess" class="success-msg" role="status">
-        🎉 Yay! Found you! Loading your world…
-      </div>
-
-      <!-- Forgot Password Link -->
-      <div class="link-row link-spacing">
-        <a routerLink="/forgot-password" class="fun-link">
-          🤔 Forgot your password?
-        </a>
       </div>
 
       <!-- Submit Button -->

@@ -1,4 +1,4 @@
-# KidsZone — Kids Login & Registration App
+# kidszone — Kids Login & Registration App
 
 A magical, colorful Angular authentication module designed for children aged 3–12.
 Built to feel like **Duolingo Kids** meets **ABCmouse** — fun, safe, and exciting!
