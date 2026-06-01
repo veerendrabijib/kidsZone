@@ -1,88 +1,69 @@
-<!-- ============================================================
-     LOGIN PAGE — kidszone
-     "Hello Friend! Let's Play!" 🦁
-     ============================================================ -->
+<div class="relative min-h-screen flex items-center justify-center px-5 py-7 bg-gray-100">
 
-<div class="page-container">
+  <div class="w-full max-w-md bg-white border rounded-xl p-8 shadow-lg">
 
-  <!-- ── Auth Card ──────────────────────────────────────────── -->
-  <div class="auth-card login-card">
+    <div class="text-center mb-6">
+      <span class="text-5xl block mb-3">🐼</span>
 
-    <!-- Header: Mascot + Title -->
-    <div class="card-header">
-      <span class="mascot-wrap" role="img" aria-label="panda"></span>
-      <h1 class="card-title">Hello Cham!</h1>
-      <p class="card-subtitle">Ready for some fun? Let's go! 🎉</p>
+      <h1 class="text-3xl font-bold text-gray-800">
+        Hello Cham!
+      </h1>
+
+      <p class="mt-2 text-gray-500">
+        Ready for some fun? Let's go! 🎉
+      </p>
     </div>
 
-    <!-- Side mascots (decorative, hidden on very small screens) -->
-    <div class="side-mascots" aria-hidden="true">
-  
-    </div>
-
-    <!-- ── Login Form ──────────────────────────────────────── -->
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
 
-      <!-- Username Field -->
-      <div class="form-group delay-100">
-        <label class="form-label" for="username">
-          <span class="label-icon">👤</span>
-          Your Fun Name
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+          👤 Your Fun Name
         </label>
-        <div class="input-wrapper">
-          <input
-            id="username"
-            type="text"
-            formControlName="username"
-            class="fun-input"
-            placeholder="Type your fun name here..."
-            autocomplete="username"
-            aria-describedby="username-error"
-          >
-        </div>
-        <!-- Validation messages -->
-        <div
-          *ngIf="username.touched && username.invalid"
-          id="username-error"
-          class="error-msg"
-          role="alert"
-        >
+
+        <input id="username" type="text" formControlName="username" placeholder="Type your fun name here..."
+          autocomplete="username" aria-describedby="username-error"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+
+        <div *ngIf="username.touched && username.invalid" id="username-error" class="mt-2 text-sm text-red-600"
+          role="alert">
           <span *ngIf="username.errors?.['required']">
             😊 Oops! Please type your fun name!
           </span>
+
           <span *ngIf="username.errors?.['minlength']">
             🤏 Your name needs at least 3 letters!
           </span>
         </div>
+
       </div>
 
-      <!-- Submit Button -->
-      <button
-        type="submit"
-        class="btn-primary"
-        [class.loading]="isLoading"
-        [disabled]="isLoading"
-        aria-label="Login"
-      >
+      <button type="submit" [disabled]="isLoading"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed">
         <ng-container *ngIf="!isLoading">
           🎮 Let's Play!
         </ng-container>
-        <span *ngIf="isLoading" class="loading-dots" aria-label="Loading...">
-          <span></span><span></span><span></span>
+
+        <span *ngIf="isLoading">
+          Loading...
         </span>
       </button>
 
-      <!-- Create Account -->
-      <div class="divider">or</div>
+      <!-- Divider -->
+      <div class="my-5 text-center text-gray-400">
+        or
+      </div>
 
-      <a routerLink="/signup" class="btn-secondary">
+      <!-- Signup -->
+      <a routerLink="/signup"
+        class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-lg transition">
         ✨ Create New Account
       </a>
 
     </form>
 
-    <!-- Bottom tip -->
-    <p class="bottom-tip">
+    <!-- Bottom Tip -->
+    <p class="mt-5 text-center text-sm font-semibold text-cyan-700 bg-cyan-50 rounded-lg px-3 py-2">
       💡 Tip: Ask mum or dad if you need help! 🌈
     </p>
   </div>

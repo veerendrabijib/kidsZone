@@ -10,57 +10,45 @@ import {
 } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
-/**
- * SignupComponent
- * ──────────────
- * Two-step kid-friendly registration form:
- *
- *  Step 1 — About You: Full Name, Nick Name, Age, Gender
- *  Step 2 — Set Up:    Password, Confirm Password,
- *                      Favourite Color, Avatar, Favourite Cartoon
- *
- * All frontend-only; no backend calls.
- */
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
 
   // ── UI state ────────────────────────────────────────────────
-  currentStep      = 1;
-  readonly STEPS   = 2;
-  showPassword     = false;
-  showConfirmPw    = false;
-  isLoading        = false;
-  signupSuccess    = false;
+  currentStep = 1;
+  readonly STEPS = 2;
+  showPassword = false;
+  showConfirmPw = false;
+  isLoading = false;
+  signupSuccess = false;
 
   // ── Selection state ─────────────────────────────────────────
-  selectedAvatar  = '🦁';
-  selectedColor   = '#FF6B6B';
-  selectedGender  = '';
+  selectedAvatar = '🦁';
+  selectedColor = '#FF6B6B';
+  selectedGender = '';
 
   // ── Data lists ──────────────────────────────────────────────
   readonly avatars = [
-    '🦁','🐱','🦊','🐶',
-    '🐻','🐼','🐨','🦋',
-    '🐸','🦄','🐯','🐰',
+    '🦁', '🐱', '🦊', '🐶',
+    '🐻', '🐼', '🐨', '🦋',
+    '🐸', '🦄', '🐯', '🐰',
   ];
 
   readonly colors = [
-    { hex: '#FF6B6B', label: 'Red'    },
+    { hex: '#FF6B6B', label: 'Red' },
     { hex: '#FFE566', label: 'Yellow' },
-    { hex: '#6BCB77', label: 'Green'  },
-    { hex: '#74B9FF', label: 'Blue'   },
+    { hex: '#6BCB77', label: 'Green' },
+    { hex: '#74B9FF', label: 'Blue' },
     { hex: '#B39DDB', label: 'Purple' },
-    { hex: '#FF6B9D', label: 'Pink'   },
+    { hex: '#FF6B9D', label: 'Pink' },
     { hex: '#FF9A3C', label: 'Orange' },
-    { hex: '#4ECDC4', label: 'Teal'   },
+    { hex: '#4ECDC4', label: 'Teal' },
   ];
 
   readonly cartoons = [
@@ -75,12 +63,12 @@ export class SignupComponent implements OnInit {
   ];
 
   readonly genders = [
-    { value: 'Boy',       label: 'Boy',       emoji: '💙' },
-    { value: 'Girl',      label: 'Girl',       emoji: '💗' },
-    { value: 'SuperKid',  label: 'Super Kid',  emoji: '⭐' },
+    { value: 'Boy', label: 'Boy', emoji: '💙' },
+    { value: 'Girl', label: 'Girl', emoji: '💗' },
+    { value: 'SuperKid', label: 'Super Kid', emoji: '⭐' },
   ];
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
@@ -88,11 +76,11 @@ export class SignupComponent implements OnInit {
         // Step 1
         fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
         nickName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-        age:      [7,  [Validators.required, Validators.min(3), Validators.max(12)]],
-        gender:   ['', Validators.required],
+        age: [7, [Validators.required, Validators.min(3), Validators.max(12)]],
+        gender: ['', Validators.required],
 
         // Step 2
-        password:        ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+        password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
         confirmPassword: ['', Validators.required],
         favoriteCartoon: ['']
       },
@@ -102,7 +90,7 @@ export class SignupComponent implements OnInit {
 
   // ── Custom validator: passwords must match ──────────────────
   passwordsMatch(group: AbstractControl): ValidationErrors | null {
-    const pw  = group.get('password')?.value;
+    const pw = group.get('password')?.value;
     const cpw = group.get('confirmPassword')?.value;
     if (cpw && pw !== cpw) {
       group.get('confirmPassword')?.setErrors({ mismatch: true });
@@ -116,12 +104,12 @@ export class SignupComponent implements OnInit {
   }
 
   // ── Getters ─────────────────────────────────────────────────
-  get fullName()        { return this.signupForm.get('fullName')!;        }
-  get nickName()        { return this.signupForm.get('nickName')!;         }
-  get age()             { return this.signupForm.get('age')!;              }
-  get gender()          { return this.signupForm.get('gender')!;           }
-  get password()        { return this.signupForm.get('password')!;         }
-  get confirmPassword() { return this.signupForm.get('confirmPassword')!;  }
+  get fullName() { return this.signupForm.get('fullName')!; }
+  get nickName() { return this.signupForm.get('nickName')!; }
+  get age() { return this.signupForm.get('age')!; }
+  get gender() { return this.signupForm.get('gender')!; }
+  get password() { return this.signupForm.get('password')!; }
+  get confirmPassword() { return this.signupForm.get('confirmPassword')!; }
 
   get ageLabel(): string {
     return `${this.age.value} year${this.age.value === 1 ? '' : 's'} old`;
@@ -176,13 +164,13 @@ export class SignupComponent implements OnInit {
 
     const profile = {
       ...this.signupForm.value,
-      avatar:        this.selectedAvatar,
+      avatar: this.selectedAvatar,
       favoriteColor: this.selectedColor,
     };
 
     // Simulate async save
     setTimeout(() => {
-      this.isLoading    = false;
+      this.isLoading = false;
       this.signupSuccess = true;
 
       setTimeout(() => {
