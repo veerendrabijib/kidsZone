@@ -11,7 +11,7 @@ export const routes: Routes = [
     loadChildren: () => import("./auth/auth.routes").then((c) => c.authRoutes),
   },
   {
-    path: "home",
-    loadComponent: () => import("./home/home.component").then((c) => c.HomeComponent),
+    path: "layout",
+    loadChildren: () => import("./layout/layout.routes").then((c) => c.layoutRoutes),
   }
 ];
