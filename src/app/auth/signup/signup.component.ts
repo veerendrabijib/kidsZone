@@ -35,6 +35,7 @@ export class SignupComponent implements OnInit {
   // ── UI state ────────────────────────────────────────────────
   currentStep      = 1;
   readonly STEPS   = 2;
+  sliderBackground = '';
   showPassword     = false;
   showConfirmPw    = false;
   isLoading        = false;
@@ -44,6 +45,15 @@ export class SignupComponent implements OnInit {
   selectedAvatar  = '🦁';
   selectedColor   = '#FF6B6B';
   selectedGender  = '';
+  updateSliderFill(event?: Event): void {
+  const min = 3;
+  const max = 12;
+  const val = event
+    ? +(event.target as HTMLInputElement).value
+    : +(this.age.value ?? 7);
+  const pct = ((val - min) / (max - min)) * 100;
+  this.sliderBackground = `linear-gradient(to right, #1D9E75 0%, #1D9E75 ${pct}%, #d0f0e8 ${pct}%, #d0f0e8 100%)`;
+}
 
   // ── Data lists ──────────────────────────────────────────────
   readonly avatars = [
@@ -84,6 +94,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
+      
       {
         // Step 1
         fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
@@ -91,13 +102,14 @@ export class SignupComponent implements OnInit {
         age:      [7,  [Validators.required, Validators.min(3), Validators.max(12)]],
         gender:   ['', Validators.required],
 
-        // Step 2
-        password:        ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
-        confirmPassword: ['', Validators.required],
-        favoriteCartoon: ['']
+        // // Step 2
+        // password:        ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+        // confirmPassword: ['', Validators.required],
+        // favoriteCartoon: ['']
       },
-      { validators: this.passwordsMatch }
+      // { validators: this.passwordsMatch }
     );
+     this.updateSliderFill();
   }
 
   // ── Custom validator: passwords must match ──────────────────

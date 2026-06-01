@@ -91,7 +91,7 @@
           <div class="slider-wrapper">
             <span class="slider-min">3</span>
             <input
-              id="age"
+             id="age"
               type="range"
               formControlName="age"
               class="age-slider"
@@ -99,6 +99,9 @@
               max="12"
               step="1"
               aria-label="Select your age"
+              (input)="updateSliderFill($event)"
+              [style.background]="sliderBackground"
+
             >
             <span class="slider-max">12</span>
           </div>
