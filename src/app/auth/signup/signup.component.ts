@@ -72,6 +72,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
+      
       {
         // Step 1
         fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
@@ -84,8 +85,12 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
         favoriteCartoon: ['']
       },
-      { validators: this.passwordsMatch }
+      // { validators: this.passwordsMatch }
     );
+     this.updateSliderFill();
+  }
+  updateSliderFill() {
+    throw new Error('Method not implemented.');
   }
 
   // ── Custom validator: passwords must match ──────────────────
