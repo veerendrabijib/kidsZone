@@ -1,31 +1,115 @@
-<!-- ✨ kidszone ✨ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids Zone</title>
 
-<!-- Floating Background Decorations (fixed, behind everything) -->
-<div class="bg-decorations" aria-hidden="true">
-  <!-- Drifting clouds -->
-  <div class="cloud cloud-1"></div>
-  <div class="cloud cloud-2"></div>
-  <div class="cloud cloud-3"></div>
-  <div class="cloud cloud-4"></div>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Twinkling stars -->
-  <div class="star star-1">⭐</div>
-  <div class="star star-2">🌟</div>
-  <div class="star star-3">✨</div>
-  <div class="star star-4">⭐</div>
-  <div class="star star-5">🌟</div>
-  <div class="star star-6">✨</div>
-  <div class="star star-7">⭐</div>
+  <style>
+    @keyframes float-gentle {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
 
-  <!-- Decorative bubbles -->
-  <div class="bubble b1"></div>
-  <div class="bubble b2"></div>
-  <div class="bubble b3"></div>
-  <div class="bubble b4"></div>
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen overflow-hidden bg-gradient-to-br from-sky-400 via-cyan-300 to-emerald-300">
 
-  <!-- Rainbow arc -->
-  <div class="rainbow-arc" aria-hidden="true"></div>
-</div>
+  <!-- Background Decorations -->
+  <div class="fixed inset-0 pointer-events-none z-0">
 
-<!-- Router outlet: swaps between Login / ForgotPassword / Signup -->
-<router-outlet />
+    <!-- Clouds -->
+    <div class="absolute top-[8%] left-[10%] h-20 w-40 rounded-full bg-white/50 blur-sm"></div>
+
+    <div class="absolute top-[18%] right-[12%] h-16 w-32 rounded-full bg-white/40 blur-sm"></div>
+
+    <div class="absolute top-[35%] left-[25%] h-24 w-44 rounded-full bg-white/45 blur-sm"></div>
+
+    <div class="absolute top-[55%] right-[30%] h-20 w-36 rounded-full bg-white/40 blur-sm"></div>
+
+    <!-- Stars -->
+    <div class="absolute top-[12%] left-[20%] text-2xl animate-pulse">⭐</div>
+    <div class="absolute top-[22%] right-[18%] text-xl animate-pulse">🌟</div>
+    <div class="absolute top-[30%] left-[70%] text-lg animate-pulse">✨</div>
+    <div class="absolute top-[45%] left-[12%] text-xl animate-pulse">⭐</div>
+    <div class="absolute top-[60%] right-[15%] text-2xl animate-pulse">🌟</div>
+    <div class="absolute top-[72%] left-[55%] text-lg animate-pulse">✨</div>
+    <div class="absolute top-[82%] left-[25%] text-xl animate-pulse">⭐</div>
+
+    <!-- Bubble 1 -->
+    <div
+      class="fixed bottom-[15%] left-[8%] h-20 w-20 rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 6s ease-in-out infinite;"
+    ></div>
+
+    <!-- Bubble 2 -->
+    <div
+      class="fixed bottom-[35%] left-[20%] h-[50px] w-[50px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 8s ease-in-out infinite; animation-delay:1.5s;"
+    ></div>
+
+    <!-- Bubble 3 -->
+    <div
+      class="fixed bottom-[10%] right-[12%] h-[110px] w-[110px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 7s ease-in-out infinite; animation-delay:.8s;"
+    ></div>
+
+    <!-- Bubble 4 -->
+    <div
+      class="fixed top-[40%] right-[25%] h-[65px] w-[65px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 5.5s ease-in-out infinite; animation-delay:2.2s;"
+    ></div>
+
+    <!-- Rainbow Arc -->
+    <div
+      class="fixed -top-[120px] -right-[120px] h-[380px] w-[380px] rounded-full"
+      style="
+        animation: spin-slow 25s linear infinite;
+        background: conic-gradient(
+          from 200deg,
+          transparent 0deg,
+          transparent 60deg,
+          rgba(255,99,71,.25) 60deg 80deg,
+          rgba(255,165,0,.25) 80deg 100deg,
+          rgba(255,255,0,.25) 100deg 120deg,
+          rgba(0,200,100,.25) 120deg 140deg,
+          rgba(30,144,255,.25) 140deg 160deg,
+          rgba(180,50,220,.25) 160deg 180deg,
+          transparent 180deg 360deg
+        );
+      "
+    ></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="relative z-10 flex min-h-screen items-center justify-center">
+    <div class="rounded-3xl bg-white/80 p-10 shadow-2xl backdrop-blur-md">
+      <h1 class="text-center text-4xl font-bold text-cyan-700">
+        ✨ Kids Zone ✨
+      </h1>
+
+      <p class="mt-4 text-center text-slate-600">
+        Your router outlet goes here.
+      </p>
+
+      <!-- Angular -->
+      <!-- <router-outlet></router-outlet> -->
+    </div>
+  </main>
+
+</body>
+</html>

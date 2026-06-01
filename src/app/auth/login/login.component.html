@@ -28,7 +28,7 @@
         <div *ngIf="username.touched && username.invalid" id="username-error" class="mt-2 text-sm text-red-600"
           role="alert">
           <span *ngIf="username.errors?.['required']">
-            😊 Oops! Please type your fun name!
+            😊 Oops! Enter your name!
           </span>
 
           <span *ngIf="username.errors?.['minlength']">
@@ -55,7 +55,7 @@
       </div>
 
       <!-- Signup -->
-      <a routerLink="/signup"
+      <a routerLink="/login/signup"
         class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-lg transition">
         ✨ Create New Account
       </a>

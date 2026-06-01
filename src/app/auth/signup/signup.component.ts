@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
   showConfirmPw = false;
   isLoading = false;
   signupSuccess = false;
+  sliderBackground = '';
 
   // ── Selection state ─────────────────────────────────────────
   selectedAvatar = '🦁';
@@ -87,10 +88,17 @@ export class SignupComponent implements OnInit {
       },
       // { validators: this.passwordsMatch }
     );
-     this.updateSliderFill();
+    this.updateSliderFill();
   }
-  updateSliderFill() {
-    throw new Error('Method not implemented.');
+
+  updateSliderFill(event?: Event): void {
+    const min = 3;
+    const max = 12;
+    const val = event
+      ? +(event.target as HTMLInputElement).value
+      : +(this.age?.value ?? 7);
+    const pct = ((val - min) / (max - min)) * 100;
+    this.sliderBackground = `linear-gradient(to right, #1D9E75 0%, #1D9E75 ${pct}%, #d0f0e8 ${pct}%, #d0f0e8 100%)`;
   }
 
   // ── Custom validator: passwords must match ──────────────────
