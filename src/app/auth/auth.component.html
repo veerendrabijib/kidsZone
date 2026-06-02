@@ -1,33 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kids Zone</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    @keyframes float-gentle {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
+<style>
+  @keyframes float-gentle {
+    0%,
+    100% {
+      transform: translateY(0);
     }
 
-    @keyframes spin-slow {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+    50% {
+      transform: translateY(-15px);
     }
-  </style>
-</head>
-<body class="min-h-screen overflow-hidden bg-gradient-to-br from-sky-400 via-cyan-300 to-emerald-300">
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div class="min-h-screen overflow-hidden bg-gradient-to-br from-sky-400 via-cyan-300 to-emerald-300">
 
   <!-- Background Decorations -->
   <div class="fixed inset-0 pointer-events-none z-0">
@@ -51,33 +45,23 @@
     <div class="absolute top-[82%] left-[25%] text-xl animate-pulse">⭐</div>
 
     <!-- Bubble 1 -->
-    <div
-      class="fixed bottom-[15%] left-[8%] h-20 w-20 rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 6s ease-in-out infinite;"
-    ></div>
+    <div class="fixed bottom-[15%] left-[8%] h-20 w-20 rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 6s ease-in-out infinite;"></div>
 
     <!-- Bubble 2 -->
-    <div
-      class="fixed bottom-[35%] left-[20%] h-[50px] w-[50px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 8s ease-in-out infinite; animation-delay:1.5s;"
-    ></div>
+    <div class="fixed bottom-[35%] left-[20%] h-[50px] w-[50px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 8s ease-in-out infinite; animation-delay:1.5s;"></div>
 
     <!-- Bubble 3 -->
-    <div
-      class="fixed bottom-[10%] right-[12%] h-[110px] w-[110px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 7s ease-in-out infinite; animation-delay:.8s;"
-    ></div>
+    <div class="fixed bottom-[10%] right-[12%] h-[110px] w-[110px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 7s ease-in-out infinite; animation-delay:.8s;"></div>
 
     <!-- Bubble 4 -->
-    <div
-      class="fixed top-[40%] right-[25%] h-[65px] w-[65px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 5.5s ease-in-out infinite; animation-delay:2.2s;"
-    ></div>
+    <div class="fixed top-[40%] right-[25%] h-[65px] w-[65px] rounded-full border-2 border-white/40 bg-white/20"
+      style="animation: float-gentle 5.5s ease-in-out infinite; animation-delay:2.2s;"></div>
 
-    <!-- Rainbow Arc -->
-    <div
-      class="fixed -top-[120px] -right-[120px] h-[380px] w-[380px] rounded-full"
-      style="
+    <!-- Rainbow Decoration -->
+    <div class="fixed -top-32 -right-32 h-96 w-96 rounded-full" style="
         animation: spin-slow 25s linear infinite;
         background: conic-gradient(
           from 200deg,
@@ -91,25 +75,16 @@
           rgba(180,50,220,.25) 160deg 180deg,
           transparent 180deg 360deg
         );
-      "
-    ></div>
+      "></div>
   </div>
 
   <!-- Main Content -->
-  <main class="relative z-10 flex min-h-screen items-center justify-center">
-    <div class="rounded-3xl bg-white/80 p-10 shadow-2xl backdrop-blur-md">
-      <h1 class="text-center text-4xl font-bold text-cyan-700">
-        ✨ Kids Zone ✨
-      </h1>
+  <main class="relative z-10 flex min-h-screen items-center justify-center px-4">
 
-      <p class="mt-4 text-center text-slate-600">
-        Your router outlet goes here.
-      </p>
-
-      <!-- Angular -->
-      <!-- <router-outlet></router-outlet> -->
+    <div class="w-full max-w-lg rounded-3xl bg-white/80 p-10 shadow-2xl backdrop-blur-md">
+      <router-outlet></router-outlet>
     </div>
+
   </main>
 
-</body>
-</html>
+</div>
