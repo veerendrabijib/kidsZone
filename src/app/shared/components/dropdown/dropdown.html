@@ -1,0 +1,41 @@
+<div class="space-y-2 w-full">
+  @if (config.label) {
+  <div class="flex items-center gap-1 text-sm font-medium text-slate-700">
+    {{ config.label }}
+    @if(config.required){ <span class="text-rose-500">*</span> }
+  </div>
+  }
+
+  <div class="relative w-full">
+    <select
+      class="w-full min-h-[3rem] rounded-md border bg-white px-3 py-2 text-sm text-slate-900 outline-none transition duration-150 focus:border-sky-500 focus:ring-2 focus:ring-sky-100 disabled:cursor-not-allowed disabled:bg-slate-100"
+      [class.border-rose-500]="config.isInvalid"
+      [disabled]="config.disabled"
+      [attr.aria-invalid]="config.isInvalid"
+      [value]="value"
+      (change)="handleChange($event)"
+      (blur)="handleBlur()"
+    >
+      @if (config.placeholder) {
+      <option value="" disabled selected hidden>{{ config.placeholder }}</option>
+      }
+      @for (option of options; track option[optionKeys.valueKey]) {
+      <option [value]="option[optionKeys.valueKey]">{{ option[optionKeys.labelKey] }}</option>
+      }
+    </select>
+    @if (clearIcon) {
+    <button
+      type="button"
+      class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full px-2 py-1 text-slate-500 hover:bg-slate-100"
+      (click)="handleClear()"
+      aria-label="Clear selection"
+    >×</button>
+    }
+  </div>
+
+  @if (config.isInvalid) {
+  <div class="text-sm text-rose-600">{{ config.errorText }}</div>
+  } @else if(config.helperText) {
+  <div class="text-sm text-slate-500">{{ config.helperText }}</div>
+  }
+</div>

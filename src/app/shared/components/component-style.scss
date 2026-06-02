@@ -1,0 +1,103 @@
+/* 
+Container + Label 
+*/
+@mixin field-label-map {
+
+ width: var(--field-width);
+
+ /* Container */
+ & .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+ }
+
+ /* Label */
+ & .label {
+  color: var(--field-label-color);
+  font-size: var(--field-label-size);
+  font-family: var(--field-label-font-family, inherit);
+  font-weight: var(--field-label-weight, normal);
+  text-align: var(--field-label-alignment, left);
+ }
+
+ /* Label Required */
+ & .label .required {
+  color: var(--color-danger);
+ }
+}
+
+/*
+Helper & Error
+*/
+@mixin field-helper-map {
+
+ & .helper-text,
+ & .error-text {
+  font-size: var(--field-helper-text);
+  margin-top: var(--field-gap);
+ }
+
+ & .helper-text {
+  color: var(--field-helper-color);
+ }
+
+ & .error-text {
+  color: var(--field-error-color);
+ }
+}
+
+/*
+Size Mixin
+*/
+@mixin field-size-map {
+
+ /** Default: MD */
+ --field-font-size: var(--field-font-size-md);
+ --field-label-size: var(--field-label-size-md);
+ --field-height: var(--field-height-md);
+ --field-icon-size: var(--field-icon-size-md);
+
+ &[size="sm"] {
+  --field-font-size: var(--field-font-size-sm);
+  --field-label-size: var(--field-label-size-sm);
+  --field-height: var(--field-height-sm);
+  --field-icon-size: var(--field-icon-size-sm);
+ }
+
+ &[size="lg"] {
+  --field-font-size: var(--field-font-size-lg);
+  --field-label-size: var(--field-label-size-lg);
+  --field-height: var(--field-height-lg);
+  --field-icon-size: var(--field-icon-size-lg);
+ }
+}
+
+/*
+Field Radius Mixin
+*/
+@mixin field-radius-map {
+
+ /** Default: MD */
+ --field-border-radius: var(--field-border-radius-md);
+
+ &[rounded="none"] {
+  --field-border-radius: var(--field-border-radius-none);
+ }
+
+ &[rounded="sm"] {
+  --field-border-radius: var(--field-border-radius-sm);
+ }
+
+ &[rounded="md"] {
+  --field-border-radius: var(--field-border-radius-md);
+ }
+
+ &[rounded="lg"] {
+  --field-border-radius: var(--field-border-radius-lg);
+ }
+
+ &[rounded="full"] {
+  --field-border-radius: var(--field-border-radius-full);
+ }
+}

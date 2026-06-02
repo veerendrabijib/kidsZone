@@ -1,0 +1,22 @@
+@for (item of chipsList(); track item.id) {
+<div
+  #chip
+  role="button"
+  tabindex="0"
+  class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+  [class.border-slate-300]="item.id !== selectedChip()"
+  [class.bg-slate-100]="item.id !== selectedChip()"
+  [class.text-slate-700]="item.id !== selectedChip()"
+  [class.border-sky-500]="item.id === selectedChip()"
+  [class.bg-sky-600]="item.id === selectedChip()"
+  [class.text-white]="item.id === selectedChip()"
+  (click)="selectChip(item)"
+  (keydown.enter)="selectChip(item)"
+  [attr.aria-pressed]="item.id === selectedChip()"
+>
+  @if (item.icon) {
+  <span class="text-base">{{ item.icon }}</span>
+  }
+  <span>{{ item.name }}</span>
+</div>
+}

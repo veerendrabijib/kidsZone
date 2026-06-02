@@ -1,0 +1,17 @@
+<button
+  [attr.type]="type"
+  class="w-full inline-flex items-center justify-center gap-2 rounded-md bg-sky-600 text-white text-base font-semibold px-4 py-3 transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 disabled:opacity-60 disabled:cursor-not-allowed"
+  [disabled]="disabled || loading"
+  [attr.aria-disabled]="disabled || loading"
+  [attr.aria-busy]="loading"
+  (click)="handleClick()"
+>
+  @if (loading) {
+    <span class="inline-flex items-center gap-2">
+      <span class="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent" aria-hidden="true"></span>
+      <span>{{ loadingText || 'Loading...' }}</span>
+    </span>
+  } @else {
+    <ng-content></ng-content>
+  }
+</button>

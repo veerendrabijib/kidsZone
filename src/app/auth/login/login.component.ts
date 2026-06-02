@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule }      from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
@@ -24,18 +24,18 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   showPassword = false;
-  isLoading    = false;
-  loginError   = false;
+  isLoading = false;
+  loginError = false;
   loginSuccess = false;
 
   // ── Demo users (frontend-only, no backend) ──────────────────
   private mockUsers = [
-    { username: 'sparkle',  password: 'play123' },
-    { username: 'buddy',    password: 'fun456'  },
-    { username: 'starkid',  password: '1234'    }
+    { username: 'sparkle', password: 'play123' },
+    { username: 'buddy', password: 'fun456' },
+    { username: 'starkid', password: '1234' }
   ];
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.isLoading  = true;
+    this.isLoading = true;
     this.loginError = false;
 
     // Simulate network delay
