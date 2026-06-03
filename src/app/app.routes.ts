@@ -3,8 +3,12 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch: 'full',
+  },
+  {
+    path: 'splash',
+    loadComponent: () => import('./splash/splash.component').then(m => m.SplashComponent)
   },
   {
     path: 'login',
