@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
     name = 'Hasvi';
+    gender="girl";
 }
