@@ -3,41 +3,52 @@
 
 <body>
     <!-- Heading -->
-    <div class="flex flex-col items-center justify-center gap-2 text-center">
-        @if(gender === 'girl') {
-        <p class="mb-3 text-[#290d8c] bg-clip-text text-xl font-semibold mt-2">
-            Hi <span class="text-pink-600">{{name}}</span>, CHOOSE YOUR INTEREST
-        </p>
-        } @else {
-        <p class="mb-3 text-[#290d8c] bg-clip-text text-xl font-semibold mt-2">
-            Hi <span class="text-blue-700">{{name}}</span>, CHOOSE YOUR INTEREST
-        </p>
-        }
-        <p class="text-[#290d8c] bg-clip-text text-2xl font-bold ">
-            What do you love ?
-        </p>
-        <p class="mb-1 text-[#2703a9] bg-clip-text text-base font-semibold">
-            Pick your favorites!
-        </p>
-    </div>
-    <!-- Buttons -->
-    <div class="mt-5">
-        <div class="flex flex-col items-center justify-center gap-2 text-center pt-5">
-            <div class="col-span-2 flex flex-wrap justify-between w-full  max-w-xl">
-                <button class=" border text-[#2703a9] font-semibold border-gray-100 px-4 py-2 rounded-lg">
-                    Start Learning
-                </button>
-                <button class="border text-[#2703a9] font-semibold border-gray-100 px-4 py-2 rounded-lg">
-                    Explore Games
-                </button>
-            </div>
-            <div class="col-span-2 flex flex-wrap justify-between w-full  max-w-xl mt-4">
-                <button class="border text-[#2703a9] font-semibold border-gray-100  px-4 py-2 rounded-lg">
-                    Spinner & Enjoy
-                </button>
-                <button class="border text-[#2703a9] font-semibold border-gray-100 px-4 py-2 rounded-lg">
-                    Slam Book
-                </button>
+    <div class="min-h-screen w-full bg-no-repeat bg-center"
+        style="background-image:url('/assets/login-bg/home-bg.png'); background-size:100% 100%;">
+        <div class="flex flex-col items-center justify-center gap-2 text-center">
+            @if(gender === 'girl') {
+            <p class="mb-3 text-[#290d8c] bg-clip-text text-xl font-semibold mt-2">
+                Hi <span class="text-pink-600">{{name}}</span>, CHOOSE YOUR INTEREST
+            </p>
+            } @else {
+            <p class="mb-3 text-[#290d8c] bg-clip-text text-xl font-semibold mt-2">
+                Hi <span class="text-blue-700">{{name}}</span>, CHOOSE YOUR INTEREST
+            </p>
+            }
+            <p class="text-[#290d8c] bg-clip-text text-2xl font-bold ">
+                What do you love ?
+            </p>
+            <p class="mb-1 text-[#2703a9] bg-clip-text text-base font-semibold">
+                Pick your favorites!
+            </p>
+        </div>
+        <!-- Buttons -->
+        <div class="mt-5">
+            <div class="flex flex-col items-center justify-center gap-2 text-center pt-5">
+                <div class="col-span-2 flex flex-wrap justify-between w-full max-w-xl">
+                    <button
+                        class="border border-gray-100 text-[#2703a9] font-semibold px-8 py-4 rounded-lg hover:bg-[#6ccef9]"
+                        (click)="onStartLearningClick()">
+                        Start Learning
+                    </button>
+                    <button
+                        class="border border-gray-100 text-[#2703a9] font-semibold px-8 py-4 rounded-lg hover:bg-[#6ccef9]"
+                        (click)="onExploreGamesClick()">
+                        Explore Games
+                    </button>
+                </div>
+                <div class="col-span-2 flex flex-wrap justify-between w-full  max-w-xl mt-4">
+                    <button
+                        class="border border-gray-100 text-[#2703a9] font-semibold px-8 py-4 rounded-lg hover:bg-[#6ccef9]"
+                        (click)="onSpinnerClick()">
+                        Spinner & Enjoy
+                    </button>
+                    <button
+                        class="border border-gray-100 text-[#2703a9] font-semibold px-8 py-4 rounded-lg hover:bg-[#6ccef9]"
+                        (click)="onSlamBookClick()">
+                        Slam Book
+                    </button>
+                </div>
             </div>
         </div>
     </div>

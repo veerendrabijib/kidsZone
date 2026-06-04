@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 .character-sprite {
-  @apply w-[185px] h-[170px] bg-no-repeat hover:border-4 border-purple-500 rounded-2xl hover:scale-[1.2] transition-transform duration-300;
+  @apply w-[185px] h-[170px] bg-no-repeat border-4 border-transparent rounded-2xl transition-transform duration-300;
+
+  background-size: 1480px 170px;
+  image-rendering: pixelated;
+
   animation: waving 1s steps(8) infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @keyframes waving {
   from {
     background-position: 0 0;
   }
+
   to {
-    background-position: -1486px 0;
+    background-position: -1480px 0;
   }
 }
