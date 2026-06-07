@@ -1,169 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
- <title>KidsZone — Fun, Safe & Adventure Login Template</title>
- <script src="https://cdn.tailwindcss.com"></script>
- <style>
-  /* Fine-tune SVG text rendering and prevent any clip / cut-off */
-  svg {
-   overflow: visible !important;
-  }
-
-  .heading-svg-container svg {
-   overflow: visible;
-  }
-
-  textPath {
-   dominant-baseline: middle;
-   text-anchor: middle;
-  }
-
-  .tagline-bg-pill {
-   background: linear-gradient(98deg, #ec4899 0%, #eb4795 100%);
-   border-radius: 999px;
-   padding: 6px 28px;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   box-shadow: 0 6px 14px rgba(236, 72, 153, 0.2);
-  }
-
-  .card-hover-effect {
-   transition: all 0.2s ease-in-out;
-  }
-
-  .card-hover-effect:hover {
-   transform: translateY(-3px);
-   background-color: #faf9ff;
-   box-shadow: 0 8px 20px rgba(49, 49, 133, 0.08);
-   border-radius: 1rem;
-  }
-
-  .side-img-fallback {
-   background: linear-gradient(145deg, #f9f0ff, #fce7f3);
-   border-radius: 2rem;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 80px;
-  }
-
-  body {
-   font-family: system-ui, 'Segoe UI', 'Comic Neue', 'Fredoka One', 'Quicksand', sans-serif;
-  }
- </style>
-</head>
-
 <body class="antialiased">
- <div class="min-h-screen w-full bg-[url('/assets/login-bg/login-bg1.png')]  bg-cover bg-center bg-no-repeat">
-  <div
-   class="max-w-7xl mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-between pt-2 md:pt-5 px-5 md:px-8 lg:px-10">
-   <div class="hidden lg:block w-[25%]"></div>
-   <div class="w-full lg:w-[55%] flex flex-col items-center justify-start mt-4 lg:mt-2">
+  <div class="min-h-screen w-full bg-[url('/assets/login-bg/login-bg1.png')]  bg-cover bg-center bg-no-repeat">
+    <div
+      class="max-w-7xl mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-between pt-2 md:pt-5 px-5 md:px-8 lg:px-10">
+      <div class="hidden lg:block w-[25%]"></div>
+      <div class="w-full lg:w-[55%] flex flex-col items-center justify-start mt-4 lg:mt-2">
 
-    <!-- 1. HEADING : curved text via SVG (fixed top cut issue + viewBox adjustment) -->
-    <div class="relative flex justify-center items-center w-full heading-svg-container my-1">
-     <svg class="w-full max-w-[650px] h-auto" viewBox="0 0 650 70" preserveAspectRatio="xMidYMid meet"
-      style="overflow: visible;">
-      <defs>
-       <path id="kidsMoonPath" d="M70,42 Q325,8 580,42" />
-      </defs>
-      <text fill="#290d8c" font-size="34" font-weight="800" letter-spacing="0.5">
-       <textPath href="#kidsMoonPath" startOffset="50%" text-anchor="middle">
-        KidsZone Login Template
-       </textPath>
-      </text>
-     </svg>
-    </div>
+        <!-- 1. HEADING : curved text via SVG (fixed top cut issue + viewBox adjustment) -->
+        <div class="relative flex justify-center items-center w-full heading-svg-container my-1">
+          <svg class="w-full max-w-[650px] h-auto" viewBox="0 0 650 70" preserveAspectRatio="xMidYMid meet"
+            style="overflow: visible;">
+            <defs>
+              <path id="kidsMoonPath" d="M70,42 Q325,8 580,42" />
+            </defs>
+            <text fill="#290d8c" font-size="34" font-weight="800" letter-spacing="0.5">
+              <textPath href="#kidsMoonPath" startOffset="50%" text-anchor="middle">
+                KidsZone Login Template
+              </textPath>
+            </text>
+          </svg>
+        </div>
 
-    <!-- 2. TAGLINE: background + padding (text with padding-2 bg gradient) using Tailwind + curved text overlay -->
-    <div class="relative mt-1 flex justify-center w-full">
-     <div class="tagline-bg-pill">
-      <svg width="340" height="40" viewBox="0 0 340 46" class="overflow-visible">
-       <defs>
-        <path id="sweetCurve" d="M40,28 Q170,6 300,28" />
-       </defs>
-       <circle cx="28" cy="22" r="2.5" fill="#FFE484" stroke="#FFF0B5" stroke-width="0.8" />
-       <circle cx="312" cy="22" r="2.5" fill="#FFE484" stroke="#FFF0B5" stroke-width="0.8" />
-       <text fill="white" font-size="17" font-weight="800" letter-spacing="1">
-        <textPath href="#sweetCurve" startOffset="50%" text-anchor="middle">
-         ✨ Fun, Safe & Adventure ✨
-        </textPath>
-       </text>
-      </svg>
-     </div>
-    </div>
+        <!-- 2. TAGLINE: background + padding (text with padding-2 bg gradient) using Tailwind + curved text overlay -->
+        <div class="relative mt-1 flex justify-center w-full">
+          <div class="tagline-bg-pill">
+            <svg width="340" height="40" viewBox="0 0 340 46" class="overflow-visible">
+              <defs>
+                <path id="sweetCurve" d="M40,28 Q170,6 300,28" />
+              </defs>
+              <circle cx="28" cy="22" r="2.5" fill="#FFE484" stroke="#FFF0B5" stroke-width="0.8" />
+              <circle cx="312" cy="22" r="2.5" fill="#FFE484" stroke="#FFF0B5" stroke-width="0.8" />
+              <text fill="white" font-size="17" font-weight="800" letter-spacing="1">
+                <textPath href="#sweetCurve" startOffset="50%" text-anchor="middle">
+                  ✨ Fun, Safe & Adventure ✨
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
 
-    <!-- 3. FEATURE CARDS: fully tailwind grid with 4 responsive cards (background white, rounded-lg) -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 bg-white rounded-2xl mt-3 w-full shadow-lg border border-indigo-50">
-     <!-- Card 1: Kid-Friendly -->
-     <div class="py-1 rounded-xl">
-      <div class="flex items-center">
-       <img src="/assets/icons/kid-frnd.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
-        alt="Kid Friendly Icon" />
-       <div>
-        <p class="font-bold text-xs text-[#313185] md:text-sm">
-         Kid-Friendly
-        </p>
-        <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">
-         Bright colors & easy to understand
-        </p>
-       </div>
+        <!-- 3. FEATURE CARDS: fully tailwind grid with 4 responsive cards (background white, rounded-lg) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 bg-white rounded-2xl mt-3 w-full shadow-lg border border-indigo-50">
+          <!-- Card 1: Kid-Friendly -->
+          <div class="py-1 rounded-xl">
+            <div class="flex items-center">
+              <img src="/assets/icons/kid-frnd.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
+                alt="Kid Friendly Icon" />
+              <div>
+                <p class="font-bold text-xs text-[#313185] md:text-sm">
+                  Kid-Friendly
+                </p>
+                <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">
+                  Bright colors & easy to understand
+                </p>
+              </div>
 
+            </div>
+          </div>
+          <!-- Card 2: Safe & Secure -->
+          <div class="py-1 rounded-xl">
+            <div class="flex items-center">
+              <img src="/assets/icons/safe.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
+                alt="Kid Friendly Icon" />
+              <div>
+                <p class="font-bold text-xs text-[#313185] md:text-sm">Safe & Secure</p>
+                <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">COPPA compliant for
+                  child safety</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3: Engaging -->
+          <div class="py-1 rounded-xl ">
+            <div class="flex items-center">
+              <img src="/assets/icons/engage.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
+                alt="Kid Friendly Icon" />
+
+              <div>
+                <p class="font-bold text-xs text-[#313185] md:text-sm">Engaging</p>
+                <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">Interactive elements &
+                  fun animations</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4: Personalized -->
+          <div class="py-1 rounded-xl ">
+            <div class="flex items-center">
+              <img src="/assets/icons/personal.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
+                alt="Kid Friendly Icon" />
+              <div>
+                <p class="font-bold text-xs text-[#313185] md:text-sm">Personalized</p>
+                <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">Lets kids feel it is
+                  their own space</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-fit mt-1 w-full flex items-center gap-4 p-4">
+          @for (character of characters; track character.id) {
+          <div class="character-sprite" [style.background-image]="'url(' + character.path + ')'"></div>
+          }
+        </div>
       </div>
-     </div>
-     <!-- Card 2: Safe & Secure -->
-     <div class="py-1 rounded-xl">
-      <div class="flex items-center">
-       <img src="/assets/icons/safe.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
-        alt="Kid Friendly Icon" />
-       <div>
-        <p class="font-bold text-xs text-[#313185] md:text-sm">Safe & Secure</p>
-        <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">COPPA compliant for
-         child safety</p>
-       </div>
+      <div class="hidden lg:flex lg:w-[20%] justify-end mt-8 lg:mt-46 xl:mt-28">
       </div>
-     </div>
-     <!-- Card 3: Engaging -->
-     <div class="py-1 rounded-xl ">
-      <div class="flex items-center">
-       <img src="/assets/icons/engage.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
-        alt="Kid Friendly Icon" />
-
-       <div>
-        <p class="font-bold text-xs text-[#313185] md:text-sm">Engaging</p>
-        <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">Interactive elements &
-         fun animations</p>
-       </div>
-      </div>
-     </div>
-     <!-- Card 4: Personalized -->
-     <div class="py-1 rounded-xl ">
-      <div class="flex items-center">
-       <img src="/assets/icons/personal.png" class="w-10 h-10 md:w-10 md:h-10 shrink-0 object-contain"
-        alt="Kid Friendly Icon" />
-       <div>
-        <p class="font-bold text-xs text-[#313185] md:text-sm">Personalized</p>
-        <p class="text-[9px] md:text-[10px] text-[#4a4a91] leading-tight">Lets kids feel it is
-         their own space</p>
-       </div>
-      </div>
-     </div>
     </div>
-
-    <div class="h-fit mt-1 w-full flex items-center gap-4 p-4">
-     @for (character of characters; track character.id) {
-     <div class="character-sprite" [style.background-image]="'url(' + character.path + ')'"></div>
-     }
-    </div>
-   </div>
-   <div class="hidden lg:flex lg:w-[20%] justify-end mt-8 lg:mt-46 xl:mt-28">
-   </div>
   </div>
- </div>
 </body>
 
 </html>
