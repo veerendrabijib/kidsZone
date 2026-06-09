@@ -14,10 +14,9 @@ import { RouterModule, Router } from '@angular/router';
  *  • Loading animation on submit
  */
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './login.component.html',
+    selector: 'app-login',
+    imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 

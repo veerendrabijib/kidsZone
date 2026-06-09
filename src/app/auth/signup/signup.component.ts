@@ -11,10 +11,9 @@ import {
 import { RouterModule, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signup',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './signup.component.html'
+    selector: 'app-signup',
+    imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
 
