@@ -1,22 +1,78 @@
 @import "tailwindcss";
 
-.character-sprite {
-  @apply w-[185px] h-[170px] bg-no-repeat border-4 border-transparent rounded-2xl transition-transform duration-300;
-
-  background-size: 1480px 170px;
-  image-rendering: pixelated;
-
-  animation: waving 1s steps(8) infinite;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
 @keyframes waving {
   from {
-    background-position: 0 0;
+    background-position: -20px 0;
   }
-
   to {
-    background-position: -1480px 0;
+    background-position: -1244px 0;
   }
+}
+
+.character-sprite {
+  @apply bg-no-repeat rounded-2xl transition-all duration-300;
+  width: 155px;
+  height: 200px;
+  background-size: 1244px 200px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: waving 1s steps(8) infinite;
+  border: 4px solid #b250f3;
+  background-color: #ad81ab;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+  will-change: transform;
+  transform: translateZ(0);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-sprite:hover {
+  transform: translateY(-8px) scale(1.08);
+  border-color: #22c55e;
+  background-color: #e5e5e5;
+  box-shadow:
+    0 12px 24px rgba(34, 197, 94, 0.35),
+    0 0 20px rgba(34, 197, 94, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.character-sprite:active {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow:
+    0 12px 24px rgba(34, 197, 94, 0.35),
+    0 0 20px rgba(34, 197, 94, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.character-sprite.selected {
+  border-color: #22c55e;
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.3),
+    0 0 25px rgba(34, 197, 94, 0.8);
+  transform: translateY(-6px) scale(1.06);
+}
+
+.character-sprite::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -150%;
+  width: 80%;
+  height: 300%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+}
+
+.character-sprite:hover::before {
+  left: 180%;
 }
