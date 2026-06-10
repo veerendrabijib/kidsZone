@@ -115,8 +115,14 @@
 
     <div class="h-fit mt-1 w-full flex items-center gap-4 p-4">
      @for (character of characters; track character.id) {
-     <div class="character-sprite" [class.selected]="selectedCharacter?.id === character.id"
-      [style.background-image]="'url(' + character.path + ')'" (click)="selectedCharacter = character"></div>
+     <div class="character-card">
+      <div class="tick-mark" [class.show]="selectedCharacter?.id === character.id">
+       <i class="fa-solid fa-check fa-beat fa-xl" style="color: white;"></i>
+      </div>
+      <div class="character-sprite" [class.selected]="selectedCharacter?.id === character.id"
+       [style.background-image]="'url(' + character.path + ')'" (click)="selectedCharacter = character"></div>
+      <div class="character-name">{{character.name}}</div>
+     </div>
      }
     </div>
 
