@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
     selector: 'app-home',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './home.component.html'
 })
 export class HomeComponent {

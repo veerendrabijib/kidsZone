@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
  selector: 'app-splash',
  imports: [],
+ changeDetection: ChangeDetectionStrategy.Eager,
  templateUrl: './splash.component.html'
 })
 export class SplashComponent {

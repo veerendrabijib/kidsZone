@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
@@ -13,6 +13,7 @@ import { RouterModule, Router } from '@angular/router';
 @Component({
     selector: 'app-signup',
     imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {

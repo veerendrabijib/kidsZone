@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 
 @Component({
     selector: 'app-layout',
     imports: [RouterOutlet],
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './layout.component.html'
 })
 export class LayoutComponent {
