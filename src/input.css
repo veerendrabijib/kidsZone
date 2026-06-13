@@ -17,9 +17,7 @@
   background-position: 0 0;
   background-repeat: no-repeat;
   image-rendering: pixelated;
-  animation: waving 1s steps(8) infinite;
   border: 4px solid #b250f3;
-  background-color: #ad81ab;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.25),
     inset 0 0 0 2px rgba(255, 255, 255, 0.25);
@@ -32,6 +30,7 @@
 
 .character-sprite:hover {
   transform: translateY(-8px) scale(1.08);
+  animation: waving 1s steps(8) infinite;
   border-color: #22c55e;
   background-color: #e5e5e5;
   box-shadow:
@@ -95,9 +94,7 @@
   z-index: 10;
   transform: scale(0);
   opacity: 0;
-  transition:
-    transform 1.5s ease,
-    opacity 2s ease;
+
 }
 
 .tick-mark.show {

@@ -1,4 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { Constants } from '../services/constants';
+import { Utils } from '../services/utils';
 
 @Component({
  selector: 'app-splash',
@@ -7,13 +10,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
  templateUrl: './splash.component.html'
 })
 export class SplashComponent {
-
-
- characters: any = [
-  { id: 1, name: "Dino", path: "assets/sprites/characters/dino.png" },
-  { id: 2, name: "Unicorn", path: "assets/sprites/characters/unicorn.png" },
-  { id: 3, name: "Robo", path: "assets/sprites/characters/robo.png" },
-  { id: 4, name: "Lion", path: "assets/sprites/characters/lion.png" },
- ]
+ private readonly router = inject(Router);   
+ characters: any = Constants.CHARACTERS;
  selectedCharacter: any;
+ onChangeRoute(character: string) {
+  this.selectedCharacter = character;
+  Utils.setLocalStorage(Constants.LS_SELECTED_CHARACTER, character);
+  this.router.navigate(['/login']);
+ }
 }

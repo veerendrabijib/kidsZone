@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { Constants } from 'src/app/services/constants';
+import { Utils } from 'src/app/services/utils';
 
 /**
  * LoginComponent
@@ -20,13 +22,12 @@ import { RouterModule, Router } from '@angular/router';
     templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-
   loginForm!: FormGroup;
-
   showPassword = false;
   isLoading = false;
   loginError = false;
   loginSuccess = false;
+  selectedCharacter: any = null;
 
   // ── Demo users (frontend-only, no backend) ──────────────────
   private mockUsers = [
@@ -34,9 +35,9 @@ export class LoginComponent implements OnInit {
     { username: 'buddy', password: 'fun456' },
     { username: 'starkid', password: '1234' }
   ];
-
-  constructor(private fb: FormBuilder, private router: Router) { }
-
+  characters = Constants.CHARACTERS;
+  private readonly router = inject(Router);
+  private readonly fb = inject(FormBuilder);
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', [
@@ -54,6 +55,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.valueChanges.subscribe(() => {
       this.loginError = false;
     });
+    this.selectedCharacter = Utils.getLocalStorage(Constants.LS_SELECTED_CHARACTER);
   }
 
   // ── Getters for template convenience ────────────────────────

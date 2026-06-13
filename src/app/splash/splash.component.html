@@ -25,6 +25,7 @@
 
     <!-- 2. TAGLINE: background + padding (text with padding-2 bg gradient) using Tailwind + curved text overlay -->
     <div class="relative mt-1 flex justify-center w-full">
+      ✨ Fun, Safe & Adventure ✨
      <div class="tagline-bg-pill">
       <svg width="340" height="40" viewBox="0 0 340 46" class="overflow-visible">
        <defs>
@@ -34,7 +35,7 @@
        <circle cx="312" cy="22" r="2.5" fill="#FFE484" stroke="#FFF0B5" stroke-width="0.8" />
        <text fill="white" font-size="17" font-weight="800" letter-spacing="1">
         <textPath href="#sweetCurve" startOffset="50%" text-anchor="middle">
-         ✨ Fun, Safe & Adventure ✨
+         
         </textPath>
        </text>
       </svg>
@@ -120,8 +121,8 @@
        <i class="fa-solid fa-check fa-beat fa-xl" style="color: white;"></i>
       </div>
       <div class="character-sprite" [class.selected]="selectedCharacter?.id === character.id"
-       [style.background-image]="'url(' + character.path + ')'" (click)="selectedCharacter = character"></div>
-      <div class="character-name">{{character.name}}</div>
+       [style.background-image]="'url(' + character.path + ')'" (click)="onChangeRoute(character)"></div>
+      <!-- <div class="character-name">{{character.name}}</div> -->
      </div>
      }
     </div>
