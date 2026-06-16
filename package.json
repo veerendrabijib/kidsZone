@@ -1,5 +1,5 @@
 {
-  "name": "sparkle-squad",
+  "name": "Kidszone",
   "version": "1.0.1",
   "description": "A magical kids login & registration app 🌟",
   "scripts": {
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@angular/build": "^22.0.1",
     "@angular/cli": "^22.0.1",
-    "@angular/compiler-cli": "^15.0.4",
+    "@angular/compiler-cli": "^22.0.1",
     "@tailwindcss/cli": "^4.3.0",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.3"

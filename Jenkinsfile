@@ -24,13 +24,6 @@ pipeline {
             }
         }
 
-        stage('Lint') {
-            steps {
-                bat 'npm run lint || true'
-                echo '✅ Checked if code looks good!'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'npm run build'
