@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 /**
@@ -6,10 +6,9 @@ import { RouterOutlet } from '@angular/router';
  * Renders floating background decorations + the router outlet.
  */
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    templateUrl: './app.component.html'
+ selector: 'app-root',
+ imports: [RouterOutlet],
+ templateUrl: './app.component.html'
 })
 export class AppComponent {
 }

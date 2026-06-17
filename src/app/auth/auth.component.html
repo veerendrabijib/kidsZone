@@ -1,67 +1,68 @@
 <style>
-  @keyframes float-gentle {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
+ @keyframes float-gentle {
 
-    50% {
-      transform: translateY(-15px);
-    }
+  0%,
+  100% {
+   transform: translateY(0);
   }
 
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
+  50% {
+   transform: translateY(-15px);
   }
+ }
+
+ @keyframes spin-slow {
+  from {
+   transform: rotate(0deg);
+  }
+
+  to {
+   transform: rotate(360deg);
+  }
+ }
 </style>
 
 <div class="min-h-screen overflow-hidden bg-gradient-to-br from-sky-400 via-cyan-300 to-emerald-300">
 
-  <!-- Background Decorations -->
-  <div class="fixed inset-0 pointer-events-none z-0">
+ <!-- Background Decorations -->
+ <div class="fixed inset-0 pointer-events-none z-0">
 
-    <!-- Clouds -->
-    <div class="absolute top-[8%] left-[10%] h-20 w-40 rounded-full bg-white/50 blur-sm"></div>
+  <!-- Clouds -->
+  <div class="absolute top-[8%] left-[10%] h-20 w-40 rounded-full bg-white/50 blur-sm"></div>
 
-    <div class="absolute top-[18%] right-[12%] h-16 w-32 rounded-full bg-white/40 blur-sm"></div>
+  <div class="absolute top-[18%] right-[12%] h-16 w-32 rounded-full bg-white/40 blur-sm"></div>
 
-    <div class="absolute top-[35%] left-[25%] h-24 w-44 rounded-full bg-white/45 blur-sm"></div>
+  <div class="absolute top-[35%] left-[25%] h-24 w-44 rounded-full bg-white/45 blur-sm"></div>
 
-    <div class="absolute top-[55%] right-[30%] h-20 w-36 rounded-full bg-white/40 blur-sm"></div>
+  <div class="absolute top-[55%] right-[30%] h-20 w-36 rounded-full bg-white/40 blur-sm"></div>
 
-    <!-- Stars -->
-    <div class="absolute top-[12%] left-[20%] text-2xl animate-pulse">⭐</div>
-    <div class="absolute top-[22%] right-[18%] text-xl animate-pulse">🌟</div>
-    <div class="absolute top-[30%] left-[70%] text-lg animate-pulse">✨</div>
-    <div class="absolute top-[45%] left-[12%] text-xl animate-pulse">⭐</div>
-    <div class="absolute top-[60%] right-[15%] text-2xl animate-pulse">🌟</div>
-    <div class="absolute top-[72%] left-[55%] text-lg animate-pulse">✨</div>
-    <div class="absolute top-[82%] left-[25%] text-xl animate-pulse">⭐</div>
+  <!-- Stars -->
+  <div class="absolute top-[12%] left-[20%] text-2xl animate-pulse">⭐</div>
+  <div class="absolute top-[22%] right-[18%] text-xl animate-pulse">🌟</div>
+  <div class="absolute top-[30%] left-[70%] text-lg animate-pulse">✨</div>
+  <div class="absolute top-[45%] left-[12%] text-xl animate-pulse">⭐</div>
+  <div class="absolute top-[60%] right-[15%] text-2xl animate-pulse">🌟</div>
+  <div class="absolute top-[72%] left-[55%] text-lg animate-pulse">✨</div>
+  <div class="absolute top-[82%] left-[25%] text-xl animate-pulse">⭐</div>
 
-    <!-- Bubble 1 -->
-    <div class="fixed bottom-[15%] left-[8%] h-20 w-20 rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 6s ease-in-out infinite;"></div>
+  <!-- Bubble 1 -->
+  <div class="fixed bottom-[15%] left-[8%] h-20 w-20 rounded-full border-2 border-white/40 bg-white/20"
+   style="animation: float-gentle 6s ease-in-out infinite;"></div>
 
-    <!-- Bubble 2 -->
-    <div class="fixed bottom-[35%] left-[20%] h-[50px] w-[50px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 8s ease-in-out infinite; animation-delay:1.5s;"></div>
+  <!-- Bubble 2 -->
+  <div class="fixed bottom-[35%] left-[20%] h-[50px] w-[50px] rounded-full border-2 border-white/40 bg-white/20"
+   style="animation: float-gentle 8s ease-in-out infinite; animation-delay:1.5s;"></div>
 
-    <!-- Bubble 3 -->
-    <div class="fixed bottom-[10%] right-[12%] h-[110px] w-[110px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 7s ease-in-out infinite; animation-delay:.8s;"></div>
+  <!-- Bubble 3 -->
+  <div class="fixed bottom-[10%] right-[12%] h-[110px] w-[110px] rounded-full border-2 border-white/40 bg-white/20"
+   style="animation: float-gentle 7s ease-in-out infinite; animation-delay:.8s;"></div>
 
-    <!-- Bubble 4 -->
-    <div class="fixed top-[40%] right-[25%] h-[65px] w-[65px] rounded-full border-2 border-white/40 bg-white/20"
-      style="animation: float-gentle 5.5s ease-in-out infinite; animation-delay:2.2s;"></div>
+  <!-- Bubble 4 -->
+  <div class="fixed top-[40%] right-[25%] h-[65px] w-[65px] rounded-full border-2 border-white/40 bg-white/20"
+   style="animation: float-gentle 5.5s ease-in-out infinite; animation-delay:2.2s;"></div>
 
-    <!-- Rainbow Decoration -->
-    <div class="fixed -top-32 -right-32 h-96 w-96 rounded-full" style="
+  <!-- Rainbow Decoration -->
+  <div class="fixed -top-32 -right-32 h-96 w-96 rounded-full" style="
         animation: spin-slow 25s linear infinite;
         background: conic-gradient(
           from 200deg,
@@ -76,15 +77,15 @@
           transparent 180deg 360deg
         );
       "></div>
+ </div>
+
+ <!-- Main Content -->
+ <main class="relative z-10 flex min-h-screen items-center justify-center px-4">
+
+  <div class="w-full max-w-lg rounded-3xl bg-white/80 p-10 shadow-2xl backdrop-blur-md">
+   <router-outlet></router-outlet>
   </div>
 
-  <!-- Main Content -->
-  <main class="relative z-10 flex min-h-screen items-center justify-center px-4">
-
-    <div class="w-full max-w-lg rounded-3xl bg-white/80 p-10 shadow-2xl backdrop-blur-md">
-      <router-outlet></router-outlet>
-    </div>
-
-  </main>
+ </main>
 
 </div>

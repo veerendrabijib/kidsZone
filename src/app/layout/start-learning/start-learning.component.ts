@@ -1,10 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-start-learning',
-    imports: [],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    templateUrl: './start-learning.component.html'
+ selector: 'app-start-learning',
+ imports: [],
+ templateUrl: './start-learning.component.html'
 })
 export class StartLearningComponent {
 

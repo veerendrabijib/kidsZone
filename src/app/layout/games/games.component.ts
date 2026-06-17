@@ -1,10 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-games',
-    imports: [],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    templateUrl: './games.component.html'
+ selector: 'app-games',
+ imports: [],
+ templateUrl: './games.component.html'
 })
 export class GamesComponent {
 

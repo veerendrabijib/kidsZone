@@ -21,7 +21,8 @@
      <div class="absolute w-full h-full" [style.background]="animal.color"
       style=" clip-path: polygon(0 0, 100% 0, 100% 100%); "></div>
      <!-- Animal -->
-     <div class="absolute top-10 left-[55%] flex flex-col items-center" [style.transform]="'rotate(' + (-i * 45) + 'deg)'">
+     <div class="absolute top-10 left-[55%] flex flex-col items-center"
+      [style.transform]="'rotate(' + (-i * 45) + 'deg)'">
       <img [src]="animal.img" [alt]="animal.name" class="w-16 h-16 object-contain" />
       <span class="font-bold text-black mt-2">{{ animal.name }} </span>
      </div>

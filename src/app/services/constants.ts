@@ -2,7 +2,7 @@ import { Service } from '@angular/core';
 
 @Service()
 export class Constants {
-  static readonly CHARACTERS = [
+ static readonly CHARACTERS = [
   { id: 1, name: "Dino", path: "assets/sprites/characters/dino.png" },
   { id: 2, name: "Unicorn", path: "assets/sprites/characters/unicorn.png" },
   { id: 3, name: "Robo", path: "assets/sprites/characters/robo.png" },

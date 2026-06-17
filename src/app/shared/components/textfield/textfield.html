@@ -1,52 +1,38 @@
 <div class="grid gap-2 w-full">
-  @if (config.label) {
-  <div class="flex items-center gap-1 text-sm font-medium text-slate-700">
-    {{ config.label }}
-    @if (config.required) { <span class="text-rose-500">*</span> }
-  </div>
-  }
+ @if (config.label) {
+ <div class="flex items-center gap-1 text-sm font-medium text-slate-700">
+  {{ config.label }}
+  @if (config.required) { <span class="text-rose-500">*</span> }
+ </div>
+ }
 
-  <div
-    class="flex items-center gap-3 w-full rounded-md border bg-white px-3 py-2 transition duration-150"
-    [class.border-slate-300]="!isInvalid && !isFocus"
-    [class.border-sky-500]="isFocus && !isInvalid"
-    [class.border-rose-500]="isInvalid"
-    [class.shadow-sm]="isFocus && !isInvalid"
-    [class.opacity-60]="disabled"
-  >
-    <input
-      class="flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:cursor-not-allowed disabled:opacity-60"
-      [type]="config.type"
-      [placeholder]="config.placeholder"
-      [readonly]="config.readonly"
-      [disabled]="disabled"
-      [attr.minlength]="config.minlength"
-      [attr.maxlength]="config.maxlength"
-      [value]="value"
-      (input)="handleInput($event)"
-      (focus)="onFocus()"
-      (blur)="handleBlur()"
-      [attr.aria-invalid]="isInvalid"
-    />
-    <ng-content select="[slot=start]" />
-    <ng-content select="[slot=end]" />
-  </div>
+ <div class="flex items-center gap-3 w-full rounded-md border bg-white px-3 py-2 transition duration-150"
+  [class.border-slate-300]="!isInvalid && !isFocus" [class.border-sky-500]="isFocus && !isInvalid"
+  [class.border-rose-500]="isInvalid" [class.shadow-sm]="isFocus && !isInvalid" [class.opacity-60]="disabled">
+  <input
+   class="flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:cursor-not-allowed disabled:opacity-60"
+   [type]="config.type" [placeholder]="config.placeholder" [readonly]="config.readonly" [disabled]="disabled"
+   [attr.minlength]="config.minlength" [attr.maxlength]="config.maxlength" [value]="value" (input)="handleInput($event)"
+   (focus)="onFocus()" (blur)="handleBlur()" [attr.aria-invalid]="isInvalid" />
+  <ng-content select="[slot=start]" />
+  <ng-content select="[slot=end]" />
+ </div>
 
-  @if (isInvalid) {
-  <div class="text-sm text-rose-600">
-    @if (config.errorText) {
-      {{ config.errorText }}
-    } @else if (errorType === 'required') {
-      {{ config.label }} is required.
-    } @else if (errorType === 'minlength') {
-      {{ config.label }} must be at least {{ config.minlength }} characters long.
-    } @else if (errorType === 'maxlength') {
-      {{ config.label }} must be at most {{ config.maxlength }} characters long.
-    } @else if (errorType === 'pattern') {
-      {{ config.label }} does not match the required pattern.
-    }
-  </div>
-  } @else if (config.helperText) {
-  <div class="text-sm text-slate-500">{{ config.helperText }}</div>
+ @if (isInvalid) {
+ <div class="text-sm text-rose-600">
+  @if (config.errorText) {
+  {{ config.errorText }}
+  } @else if (errorType === 'required') {
+  {{ config.label }} is required.
+  } @else if (errorType === 'minlength') {
+  {{ config.label }} must be at least {{ config.minlength }} characters long.
+  } @else if (errorType === 'maxlength') {
+  {{ config.label }} must be at most {{ config.maxlength }} characters long.
+  } @else if (errorType === 'pattern') {
+  {{ config.label }} does not match the required pattern.
   }
+ </div>
+ } @else if (config.helperText) {
+ <div class="text-sm text-slate-500">{{ config.helperText }}</div>
+ }
 </div>

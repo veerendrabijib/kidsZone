@@ -4,395 +4,393 @@
      ============================================================ -->
 
 <div class="relative min-h-screen flex items-start justify-center px-5 pt-7 pb-12 z-10">
-  <div class="w-full max-w-md">
-    <!-- ── Progress Bar ──────────────────────────────────────── -->
-    <div class="mb-6" [attr.aria-label]="'Step ' + currentStep + ' of ' + STEPS">
-      <!-- Progress Track -->
-      <div class="w-full h-2.5 bg-[#D8EEF7] rounded-[10px] overflow-hidden mb-3">
-        <!-- Progress Fill -->
-        <div
-          class="h-full rounded-[10px] bg-gradient-to-r from-[#4ECDC4] to-[#6BCB77] relative overflow-hidden transition-all duration-500"
-          [style.width.%]="(currentStep / STEPS) * 100">
-        </div>
-      </div>
-      <!-- Progress Steps -->
-      <div class="flex justify-between px-1">
-        <div *ngFor="let s of [1,2]"
-          class="w-[34px] h-[34px] rounded-full flex items-center justify-center text-base font-bold transition-all duration-300"
-          [ngClass]="{
+ <div class="w-full max-w-md">
+  <!-- ── Progress Bar ──────────────────────────────────────── -->
+  <div class="mb-6" [attr.aria-label]="'Step ' + currentStep + ' of ' + STEPS">
+   <!-- Progress Track -->
+   <div class="w-full h-2.5 bg-[#D8EEF7] rounded-[10px] overflow-hidden mb-3">
+    <!-- Progress Fill -->
+    <div
+     class="h-full rounded-[10px] bg-gradient-to-r from-[#4ECDC4] to-[#6BCB77] relative overflow-hidden transition-all duration-500"
+     [style.width.%]="(currentStep / STEPS) * 100">
+    </div>
+   </div>
+   <!-- Progress Steps -->
+   <div class="flex justify-between px-1">
+    <div *ngFor="let s of [1,2]"
+     class="w-[34px] h-[34px] rounded-full flex items-center justify-center text-base font-bold transition-all duration-300"
+     [ngClass]="{
         'bg-[#D8EEF7] text-[#90B8CC]': currentStep < s,
         'bg-gradient-to-br from-[#4ECDC4] to-[#6BCB77] text-white shadow-lg': currentStep >= s,
         'scale-125': currentStep === s
       }">
-          <span *ngIf="currentStep > s">✅</span>
-          <span *ngIf="currentStep <= s">{{ s }}</span>
-        </div>
-      </div>
+     <span *ngIf="currentStep > s">✅</span>
+     <span *ngIf="currentStep <= s">{{ s }}</span>
     </div>
-    <!-- ─────────────────────── STEP 1 ───────────────────────── -->
-    <ng-container *ngIf="currentStep === 1">
+   </div>
+  </div>
+  <!-- ─────────────────────── STEP 1 ───────────────────────── -->
+  <ng-container *ngIf="currentStep === 1">
 
-      <!-- Header -->
-      <div class="mb-8 text-center">
-        <span
-          class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 text-5xl shadow-lg"
-          role="img" aria-label="Giraffe mascot">
-          🦒
-        </span>
+   <!-- Header -->
+   <div class="mb-8 text-center">
+    <span
+     class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 text-5xl shadow-lg"
+     role="img" aria-label="Giraffe mascot">
+     🦒
+    </span>
 
-        <h1 class="mb-2 text-3xl font-extrabold text-slate-800">
-          Tell Us About You!
-        </h1>
+    <h1 class="mb-2 text-3xl font-extrabold text-slate-800">
+     Tell Us About You!
+    </h1>
 
-        <p class="text-slate-500">
-          We want to know our new friend! 🌟
-        </p>
-      </div>
+    <p class="text-slate-500">
+     We want to know our new friend! 🌟
+    </p>
+   </div>
 
-      <form [formGroup]="signupForm" novalidate>
+   <form [formGroup]="signupForm" novalidate>
 
-        <!-- Full Name -->
-        <div class="mb-5">
-          <label for="fullName" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
+    <!-- Full Name -->
+    <div class="mb-5">
+     <label for="fullName" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
 
-            <span>🏷️</span>
-            What's Your Full Name?
-          </label>
+      <span>🏷️</span>
+      What's Your Full Name?
+     </label>
 
-          <input id="fullName" type="text" formControlName="fullName" autocomplete="name"
-            placeholder="e.g. Alex Johnson 😊"
-            class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white"
-            aria-describedby="fullname-error">
+     <input id="fullName" type="text" formControlName="fullName" autocomplete="name" placeholder="e.g. Alex Johnson 😊"
+      class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white"
+      aria-describedby="fullname-error">
 
-          <div *ngIf="fullName.touched && fullName.invalid" id="fullname-error"
-            class="mt-2 text-sm font-semibold text-red-500">
+     <div *ngIf="fullName.touched && fullName.invalid" id="fullname-error"
+      class="mt-2 text-sm font-semibold text-red-500">
 
-            <span *ngIf="fullName.errors?.['required']">
-              📝 Please tell us your name!
-            </span>
+      <span *ngIf="fullName.errors?.['required']">
+       📝 Please tell us your name!
+      </span>
 
-            <span *ngIf="fullName.errors?.['minlength']">
-              🤏 Name needs at least 2 letters!
-            </span>
-          </div>
-        </div>
+      <span *ngIf="fullName.errors?.['minlength']">
+       🤏 Name needs at least 2 letters!
+      </span>
+     </div>
+    </div>
 
-        <!-- Nick Name -->
-        <div class="mb-5">
-          <label for="nickName" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
+    <!-- Nick Name -->
+    <div class="mb-5">
+     <label for="nickName" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
 
-            <span>⭐</span>
-            Your Super Nickname
-          </label>
+      <span>⭐</span>
+      Your Super Nickname
+     </label>
 
-          <input id="nickName" type="text" formControlName="nickName" placeholder="e.g. StarBlaster, CoolKid…"
-            class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white"
-            aria-describedby="nickname-error">
+     <input id="nickName" type="text" formControlName="nickName" placeholder="e.g. StarBlaster, CoolKid…"
+      class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white"
+      aria-describedby="nickname-error">
 
-          <div *ngIf="nickName.touched && nickName.invalid" id="nickname-error"
-            class="mt-2 text-sm font-semibold text-red-500">
+     <div *ngIf="nickName.touched && nickName.invalid" id="nickname-error"
+      class="mt-2 text-sm font-semibold text-red-500">
 
-            <span *ngIf="nickName.errors?.['required']">
-              🌟 Give yourself a cool nickname!
-            </span>
+      <span *ngIf="nickName.errors?.['required']">
+       🌟 Give yourself a cool nickname!
+      </span>
 
-            <span *ngIf="nickName.errors?.['minlength']">
-              📏 Nickname needs 2+ letters!
-            </span>
-          </div>
-        </div>
+      <span *ngIf="nickName.errors?.['minlength']">
+       📏 Nickname needs 2+ letters!
+      </span>
+     </div>
+    </div>
 
-        <!-- Age Slider -->
-        <div class="mb-6">
-          <label for="age" class="mb-3 flex items-center text-sm font-bold text-slate-700">
-            <span class="mr-2">🎂</span>
-            How Old Are You?
-            <span
-              class="ml-2 rounded-full bg-gradient-to-r from-[#FFE566] to-[#FF9A3C] px-3 py-1 text-xs font-black text-[#6B3D00]">
-              {{ ageLabel }}
-            </span>
-          </label>
-          <div class="flex items-center gap-3">
-            <span class="min-w-[22px] text-center font-black text-[#7BAFC4]">
-              3
-            </span>
-            <input id="age" type="range" formControlName="age" min="3" max="12" step="1" aria-label="Select your age"
-              class="age-slider h-3 flex-1 cursor-pointer rounded-full">
-            <span class="min-w-[22px] text-center font-black text-[#7BAFC4]">
-              12
-            </span>
-          </div>
-          <div class="mt-2 flex flex-wrap justify-center gap-1">
-            <span *ngFor="let n of [3,4,5,6,7,8,9,10,11,12]" class="text-base transition-all duration-200" [ngClass]="{
+    <!-- Age Slider -->
+    <div class="mb-6">
+     <label for="age" class="mb-3 flex items-center text-sm font-bold text-slate-700">
+      <span class="mr-2">🎂</span>
+      How Old Are You?
+      <span
+       class="ml-2 rounded-full bg-gradient-to-r from-[#FFE566] to-[#FF9A3C] px-3 py-1 text-xs font-black text-[#6B3D00]">
+       {{ ageLabel }}
+      </span>
+     </label>
+     <div class="flex items-center gap-3">
+      <span class="min-w-[22px] text-center font-black text-[#7BAFC4]">
+       3
+      </span>
+      <input id="age" type="range" formControlName="age" min="3" max="12" step="1" aria-label="Select your age"
+       class="age-slider h-3 flex-1 cursor-pointer rounded-full">
+      <span class="min-w-[22px] text-center font-black text-[#7BAFC4]">
+       12
+      </span>
+     </div>
+     <div class="mt-2 flex flex-wrap justify-center gap-1">
+      <span *ngFor="let n of [3,4,5,6,7,8,9,10,11,12]" class="text-base transition-all duration-200" [ngClass]="{
             'opacity-100 scale-110': age.value >= n,
             'opacity-25': age.value < n
           }">
-              🎂
-            </span>
-          </div>
-        </div>
+       🎂
+      </span>
+     </div>
+    </div>
 
-        <!-- Gender -->
-        <div class="mb-6">
-          <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
-            <span>🌈</span> Are You a… </label>
-          <div class="flex gap-3 max-[400px]:flex-wrap" role="radiogroup" aria-label="Select gender">
-            <button type="button" *ngFor="let g of genders" (click)="selectGender(g.value)" [style.--accent]="
+    <!-- Gender -->
+    <div class="mb-6">
+     <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
+      <span>🌈</span> Are You a… </label>
+     <div class="flex gap-3 max-[400px]:flex-wrap" role="radiogroup" aria-label="Select gender">
+      <button type="button" *ngFor="let g of genders" (click)="selectGender(g.value)" [style.--accent]="
             g.value === 'Boy'
               ? '#74B9FF'
               : g.value === 'Girl'
               ? '#FF6B9D'
               : '#FFE566'
           " [style.background]="selectedGender === g.value ? 'var(--accent)' : ''"
-              [style.borderColor]="selectedGender === g.value ? 'var(--accent)' : ''" [ngClass]="{
+       [style.borderColor]="selectedGender === g.value ? 'var(--accent)' : ''" [ngClass]="{
             'text-white shadow-xl scale-105 -translate-y-1':
             selectedGender === g.value
           }"
-              class="flex flex-1 flex-col items-center gap-2 rounded-2xl border-[3px] border-[#D8EEF7] bg-[#F0FAFF] px-2 py-4 font-extrabold text-[#5A7D95] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-              <span class="text-[1.8rem]"> {{ g.emoji }}
-              </span>
-              <span class="text-xs font-black"> {{ g.label }}
-              </span>
-            </button>
-          </div>
-          <div *ngIf="gender.touched && gender.invalid" class="mt-2 text-sm font-semibold text-red-500">
-            🌈 Pick one — they're all awesome!
-          </div>
-        </div>
-        <!-- Next Button -->
-        <button type="button" (click)="nextStep()"
-          class="w-full rounded-full bg-gradient-to-r from-[#5B9BF5] to-[#B39DDB] px-6 py-4 font-bold text-white shadow-[0_6px_20px_rgba(91,155,245,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(91,155,245,0.55)]">
-          Next Step! 🚀
-        </button>
-        <div class="mt-4 text-center">
-          <span class="text-sm text-slate-500">
-            Already have an account?
-          </span>
-          <a routerLink="/login" class="ml-1 font-bold text-cyan-500 transition-colors hover:text-cyan-600">
-            Log in here!
-          </a>
-        </div>
-      </form>
-    </ng-container>
+       class="flex flex-1 flex-col items-center gap-2 rounded-2xl border-[3px] border-[#D8EEF7] bg-[#F0FAFF] px-2 py-4 font-extrabold text-[#5A7D95] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+       <span class="text-[1.8rem]"> {{ g.emoji }}
+       </span>
+       <span class="text-xs font-black"> {{ g.label }}
+       </span>
+      </button>
+     </div>
+     <div *ngIf="gender.touched && gender.invalid" class="mt-2 text-sm font-semibold text-red-500">
+      🌈 Pick one — they're all awesome!
+     </div>
+    </div>
+    <!-- Next Button -->
+    <button type="button" (click)="nextStep()"
+     class="w-full rounded-full bg-gradient-to-r from-[#5B9BF5] to-[#B39DDB] px-6 py-4 font-bold text-white shadow-[0_6px_20px_rgba(91,155,245,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(91,155,245,0.55)]">
+     Next Step! 🚀
+    </button>
+    <div class="mt-4 text-center">
+     <span class="text-sm text-slate-500">
+      Already have an account?
+     </span>
+     <a routerLink="/login" class="ml-1 font-bold text-cyan-500 transition-colors hover:text-cyan-600">
+      Log in here!
+     </a>
+    </div>
+   </form>
+  </ng-container>
 
-    <!-- ─────────────────────── STEP 2 ───────────────────────── -->
-    <ng-container *ngIf="currentStep === 2">
-      <!-- Header -->
-      <div class="mb-8 text-center">
-        <span
-          class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-pink-100 to-purple-100 text-5xl shadow-lg"
-          role="img" aria-label="Unicorn mascot">
-          🦄
-        </span>
+  <!-- ─────────────────────── STEP 2 ───────────────────────── -->
+  <ng-container *ngIf="currentStep === 2">
+   <!-- Header -->
+   <div class="mb-8 text-center">
+    <span
+     class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-pink-100 to-purple-100 text-5xl shadow-lg"
+     role="img" aria-label="Unicorn mascot">
+     🦄
+    </span>
 
-        <h1 class="mb-2 text-3xl font-extrabold text-slate-800">
-          Almost There!
-        </h1>
+    <h1 class="mb-2 text-3xl font-extrabold text-slate-800">
+     Almost There!
+    </h1>
 
-        <p class="text-slate-500">
-          Just a few more magical steps! ✨
-        </p>
-      </div>
+    <p class="text-slate-500">
+     Just a few more magical steps! ✨
+    </p>
+   </div>
 
-      <!-- Success Overlay -->
-      <div *ngIf="signupSuccess" role="status" class="py-8 text-center">
+   <!-- Success Overlay -->
+   <div *ngIf="signupSuccess" role="status" class="py-8 text-center">
 
-        <div class="mb-4 animate-bounce text-7xl">
-          🎉
-        </div>
+    <div class="mb-4 animate-bounce text-7xl">
+     🎉
+    </div>
 
-        <p
-          class="mb-2 bg-gradient-to-r from-[#6BCB77] to-[#4ECDC4] bg-clip-text text-3xl font-extrabold text-transparent">
-          Welcome to the Squad!
-        </p>
+    <p class="mb-2 bg-gradient-to-r from-[#6BCB77] to-[#4ECDC4] bg-clip-text text-3xl font-extrabold text-transparent">
+     Welcome to the Squad!
+    </p>
 
-        <p class="font-semibold text-slate-500">
-          Redirecting to login… 🚀
-        </p>
-      </div>
+    <p class="font-semibold text-slate-500">
+     Redirecting to login… 🚀
+    </p>
+   </div>
 
-      <form *ngIf="!signupSuccess" [formGroup]="signupForm" (ngSubmit)="onSignup()" novalidate>
+   <form *ngIf="!signupSuccess" [formGroup]="signupForm" (ngSubmit)="onSignup()" novalidate>
 
-        <!-- Avatar Selection -->
-        <div class="mb-6">
+    <!-- Avatar Selection -->
+    <div class="mb-6">
 
-          <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
-            <span>🎭</span>
-            Choose Your Avatar!
-          </label>
+     <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
+      <span>🎭</span>
+      Choose Your Avatar!
+     </label>
 
-          <div class="mb-3 grid grid-cols-6 gap-2 max-[400px]:grid-cols-4" role="listbox" aria-label="Choose avatar">
+     <div class="mb-3 grid grid-cols-6 gap-2 max-[400px]:grid-cols-4" role="listbox" aria-label="Choose avatar">
 
-            <button type="button" *ngFor="let av of avatars" (click)="selectAvatar(av)"
-              [attr.aria-selected]="selectedAvatar === av" [attr.aria-label]="av + ' avatar'" [ngClass]="{
+      <button type="button" *ngFor="let av of avatars" (click)="selectAvatar(av)"
+       [attr.aria-selected]="selectedAvatar === av" [attr.aria-label]="av + ' avatar'" [ngClass]="{
             'border-[#4ECDC4] bg-gradient-to-br from-[#E0FAFA] to-[#D0F8F5] scale-110 shadow-lg':
             selectedAvatar === av
           }"
-              class="flex aspect-square w-full items-center justify-center rounded-xl border-[3px] border-transparent bg-[#F0FAFF] text-[1.8rem] transition-all duration-300 hover:scale-110 hover:-rotate-3 hover:border-[#B2EBF2] hover:bg-[#E0F5FF]">
+       class="flex aspect-square w-full items-center justify-center rounded-xl border-[3px] border-transparent bg-[#F0FAFF] text-[1.8rem] transition-all duration-300 hover:scale-110 hover:-rotate-3 hover:border-[#B2EBF2] hover:bg-[#E0F5FF]">
 
-              {{ av }}
-            </button>
+       {{ av }}
+      </button>
 
-          </div>
+     </div>
 
-          <div
-            class="flex items-center gap-2 rounded-xl bg-[rgba(78,205,196,0.08)] px-4 py-2 text-sm font-bold text-[#6B8FA3]">
+     <div
+      class="flex items-center gap-2 rounded-xl bg-[rgba(78,205,196,0.08)] px-4 py-2 text-sm font-bold text-[#6B8FA3]">
 
-            <span>Your avatar:</span>
+      <span>Your avatar:</span>
 
-            <span class="text-2xl">
-              {{ selectedAvatar }}
-            </span>
+      <span class="text-2xl">
+       {{ selectedAvatar }}
+      </span>
 
-            <span class="font-extrabold text-[#4ECDC4]">
-              Looking great! 😎
-            </span>
+      <span class="font-extrabold text-[#4ECDC4]">
+       Looking great! 😎
+      </span>
 
-          </div>
-        </div>
+     </div>
+    </div>
 
-        <!-- Favourite Color -->
-        <div class="mb-6">
+    <!-- Favourite Color -->
+    <div class="mb-6">
 
-          <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
-            <span>🎨</span>
-            Favourite Color
-          </label>
+     <label class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-700">
+      <span>🎨</span>
+      Favourite Color
+     </label>
 
-          <div class="flex flex-wrap gap-3" role="listbox" aria-label="Choose favourite color">
+     <div class="flex flex-wrap gap-3" role="listbox" aria-label="Choose favourite color">
 
-            <button type="button" *ngFor="let c of colors" (click)="selectColor(c.hex)" [style.background]="c.hex"
-              [attr.aria-label]="c.label" [attr.aria-selected]="selectedColor === c.hex" [ngClass]="{
+      <button type="button" *ngFor="let c of colors" (click)="selectColor(c.hex)" [style.background]="c.hex"
+       [attr.aria-label]="c.label" [attr.aria-selected]="selectedColor === c.hex" [ngClass]="{
             'scale-125 border-white shadow-xl outline outline-4 outline-black/10':
             selectedColor === c.hex
           }"
-              class="flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-transparent text-white font-black shadow-md transition-all duration-300 hover:scale-110 hover:shadow-lg">
+       class="flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-transparent text-white font-black shadow-md transition-all duration-300 hover:scale-110 hover:shadow-lg">
 
-              <span *ngIf="selectedColor === c.hex">
-                ✓
-              </span>
+       <span *ngIf="selectedColor === c.hex">
+        ✓
+       </span>
 
-            </button>
+      </button>
 
-          </div>
-        </div>
+     </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mb-5">
+    <!-- Password -->
+    <div class="mb-5">
 
-          <label for="signup-pw" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
+     <label for="signup-pw" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
 
-            <span>🔐</span>
-            Create Your Secret Password
+      <span>🔐</span>
+      Create Your Secret Password
 
-          </label>
+     </label>
 
-          <div class="relative">
+     <div class="relative">
 
-            <input id="signup-pw" [type]="showPassword ? 'text' : 'password'" formControlName="password"
-              placeholder="Make it super secret! 🤫" aria-describedby="signup-pw-error"
-              class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 pr-14 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
+      <input id="signup-pw" [type]="showPassword ? 'text' : 'password'" formControlName="password"
+       placeholder="Make it super secret! 🤫" aria-describedby="signup-pw-error"
+       class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 pr-14 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
 
-            <button type="button" (click)="showPassword = !showPassword"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-xl">
+      <button type="button" (click)="showPassword = !showPassword"
+       class="absolute right-3 top-1/2 -translate-y-1/2 text-xl">
 
-              {{ showPassword ? '🙈' : '👁️' }}
+       {{ showPassword ? '🙈' : '👁️' }}
 
-            </button>
+      </button>
 
-          </div>
+     </div>
 
-          <div *ngIf="password.touched && password.invalid" id="signup-pw-error"
-            class="mt-2 text-sm font-semibold text-red-500">
+     <div *ngIf="password.touched && password.invalid" id="signup-pw-error"
+      class="mt-2 text-sm font-semibold text-red-500">
 
-            <span *ngIf="password.errors?.['required']">
-              🔐 Make a secret password!
-            </span>
+      <span *ngIf="password.errors?.['required']">
+       🔐 Make a secret password!
+      </span>
 
-            <span *ngIf="password.errors?.['minlength']">
-              📏 At least 4 characters please!
-            </span>
+      <span *ngIf="password.errors?.['minlength']">
+       📏 At least 4 characters please!
+      </span>
 
-          </div>
+     </div>
 
-        </div>
+    </div>
 
-        <!-- Confirm Password -->
-        <div class="mb-5">
+    <!-- Confirm Password -->
+    <div class="mb-5">
 
-          <label for="confirm-pw" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
+     <label for="confirm-pw" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
 
-            <span>🔒</span>
-            Type It Again (Just To Be Sure!)
+      <span>🔒</span>
+      Type It Again (Just To Be Sure!)
 
-          </label>
+     </label>
 
-          <div class="relative">
+     <div class="relative">
 
-            <input id="confirm-pw" [type]="showConfirmPw ? 'text' : 'password'" formControlName="confirmPassword"
-              placeholder="Same password again… 🔑" aria-describedby="confirm-pw-error"
-              class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 pr-14 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
+      <input id="confirm-pw" [type]="showConfirmPw ? 'text' : 'password'" formControlName="confirmPassword"
+       placeholder="Same password again… 🔑" aria-describedby="confirm-pw-error"
+       class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 pr-14 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
 
-            <button type="button" (click)="showConfirmPw = !showConfirmPw"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-xl">
+      <button type="button" (click)="showConfirmPw = !showConfirmPw"
+       class="absolute right-3 top-1/2 -translate-y-1/2 text-xl">
 
-              {{ showConfirmPw ? '🙈' : '👁️' }}
+       {{ showConfirmPw ? '🙈' : '👁️' }}
 
-            </button>
+      </button>
 
-          </div>
+     </div>
 
-          <div *ngIf="confirmPassword.touched && confirmPassword.invalid" id="confirm-pw-error"
-            class="mt-2 text-sm font-semibold text-red-500">
+     <div *ngIf="confirmPassword.touched && confirmPassword.invalid" id="confirm-pw-error"
+      class="mt-2 text-sm font-semibold text-red-500">
 
-            <span *ngIf="confirmPassword.errors?.['required']">
-              🔒 Please confirm your password!
-            </span>
-            <span *ngIf="confirmPassword.errors?.['mismatch']">
-              😅 Oops! Passwords don't match!
-            </span>
-          </div>
-          <div *ngIf="confirmPassword.touched && !confirmPassword.invalid && password.value && confirmPassword.value"
-            class="mt-2 text-sm font-bold text-green-600">
-            ✅ Passwords match! Great job!
-          </div>
-        </div>
-        <!-- Favourite Cartoon -->
-        <div class="mb-6">
-          <label for="cartoon" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
-            <span>📺</span>
-            Favourite Cartoon
-            <span
-              class="rounded-full border border-[#4ECDC44D] bg-[#4ECDC426] px-2 py-0.5 text-[11px] font-black text-[#4ECDC4]">
-              Optional
-            </span>
-          </label>
-          <select id="cartoon" formControlName="favoriteCartoon" aria-label="Choose your favourite cartoon"
-            class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
-            <option value=""> Pick your favourite! 🎬
-            </option>
-            <option *ngFor="let c of cartoons" [value]="c"> {{ c }} </option>
-          </select>
-        </div>
-        <!-- Navigation Buttons -->
-        <div class="mt-3 flex gap-3">
-          <button type="button" (click)="prevStep()" aria-label="Go back to step 1"
-            class="shrink-0 rounded-full border-[3px] border-[#C8ECF8] bg-[#F0FAFF] px-5 py-4 text-[#7B9BAF] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#4ECDC4] hover:text-[#4ECDC4]">
-            ← Back
-          </button>
-          <button type="submit" [disabled]="isLoading" aria-label="Create my account"
-            class="flex-1 rounded-full bg-gradient-to-r from-[#6BCB77] to-[#4ECDC4] px-6 py-4 font-bold text-white shadow-[0_6px_20px_rgba(107,203,119,0.45)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(107,203,119,0.55)] disabled:cursor-not-allowed disabled:opacity-70">
-            <ng-container *ngIf="!isLoading"> 🚀 Let's Go! </ng-container>
-            <span *ngIf="isLoading" class="flex justify-center gap-1">
-              <span class="h-2 w-2 animate-bounce rounded-full bg-white"></span>
-              <span class="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:0.15s]"></span>
-              <span class="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:0.3s]"></span>
-            </span>
-          </button>
-        </div>
-      </form>
-    </ng-container>
+      <span *ngIf="confirmPassword.errors?.['required']">
+       🔒 Please confirm your password!
+      </span>
+      <span *ngIf="confirmPassword.errors?.['mismatch']">
+       😅 Oops! Passwords don't match!
+      </span>
+     </div>
+     <div *ngIf="confirmPassword.touched && !confirmPassword.invalid && password.value && confirmPassword.value"
+      class="mt-2 text-sm font-bold text-green-600">
+      ✅ Passwords match! Great job!
+     </div>
+    </div>
+    <!-- Favourite Cartoon -->
+    <div class="mb-6">
+     <label for="cartoon" class="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">
+      <span>📺</span>
+      Favourite Cartoon
+      <span
+       class="rounded-full border border-[#4ECDC44D] bg-[#4ECDC426] px-2 py-0.5 text-[11px] font-black text-[#4ECDC4]">
+       Optional
+      </span>
+     </label>
+     <select id="cartoon" formControlName="favoriteCartoon" aria-label="Choose your favourite cartoon"
+      class="w-full rounded-2xl border-2 border-sky-100 bg-sky-50 px-4 py-3 outline-none transition-all duration-300 focus:border-cyan-400 focus:bg-white">
+      <option value=""> Pick your favourite! 🎬
+      </option>
+      <option *ngFor="let c of cartoons" [value]="c"> {{ c }} </option>
+     </select>
+    </div>
+    <!-- Navigation Buttons -->
+    <div class="mt-3 flex gap-3">
+     <button type="button" (click)="prevStep()" aria-label="Go back to step 1"
+      class="shrink-0 rounded-full border-[3px] border-[#C8ECF8] bg-[#F0FAFF] px-5 py-4 text-[#7B9BAF] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#4ECDC4] hover:text-[#4ECDC4]">
+      ← Back
+     </button>
+     <button type="submit" [disabled]="isLoading" aria-label="Create my account"
+      class="flex-1 rounded-full bg-gradient-to-r from-[#6BCB77] to-[#4ECDC4] px-6 py-4 font-bold text-white shadow-[0_6px_20px_rgba(107,203,119,0.45)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(107,203,119,0.55)] disabled:cursor-not-allowed disabled:opacity-70">
+      <ng-container *ngIf="!isLoading"> 🚀 Let's Go! </ng-container>
+      <span *ngIf="isLoading" class="flex justify-center gap-1">
+       <span class="h-2 w-2 animate-bounce rounded-full bg-white"></span>
+       <span class="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:0.15s]"></span>
+       <span class="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:0.3s]"></span>
+      </span>
+     </button>
+    </div>
+   </form>
+  </ng-container>
 
-  </div>
+ </div>
 
 </div>
